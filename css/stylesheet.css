@@ -1,0 +1,154 @@
+* {
+  background-color: var(--main-bg-color);
+  font-family: var(--font);
+
+
+
+
+}
+
+html,
+body {
+  height: auto;
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.content .home {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+}
+
+.whole-info-container {
+  width: auto;
+  max-width: 100%;
+  background-color: red;
+
+
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 0 10%;
+  box-sizing: border-box;
+}
+
+/*Home*/
+
+.content .home-profile {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+
+}
+
+.content .home h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 200px;
+}
+
+.content .hire-logo {
+  max-height: 20px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+
+  display: flex;
+
+}
+
+.content .home-title {
+  text-align: left;
+  margin-top: 1rem;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 25px;
+}
+
+
+
+/*About*/
+
+
+/*Side bar*/
+.sidebar {
+  background: var(--other-background);
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  overflow-x: hidden;
+  flex-direction: column;
+  max-width: auto;
+  padding: 25px 20px;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.sidebar ul,
+.sidebar li {
+  background-color: transparent;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+
+
+
+}
+
+.sidebar li {
+  margin-bottom: 30px;
+}
+
+.elements {
+
+  background-color: transparent;
+  margin: 0;
+
+}
+
+.elements img {
+
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+
+
+
+
+}
+
+
+
+/*Footer*/
+.footer {
+  width: 100%;
+  background-color: #393c61;
+  color: var(--main-bg-color);
+  text-align: center;
+  padding: 1rem 0;
+
+}
+
+.footer p {
+  text-align: center;
+  background-color: #393c61;
+  width: 100%;
+
+}
