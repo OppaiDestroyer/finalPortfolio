@@ -1,6 +1,6 @@
 function adjustContentLayout() {
   const sidebar = document.querySelector('.sidebar');
-  const contentDivs = document.querySelectorAll('.content > div');
+  const contentDivs = document.querySelectorAll('.content ');
   const wholeInfoContainer = document.querySelector('.whole-info-container');
   const footer = document.querySelector('.footer');
 
