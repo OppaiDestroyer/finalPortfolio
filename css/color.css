@@ -1,7 +1,20 @@
 :root {
-  --main-bg-color: #f1ebe3; 
-  --text-color: #0d0d0d;
-  --other-background: #bacebb;
-  --buttons-color: #3e4264;
+  --main-bg-color:#292527; 
+  --text-color:#e1e3e2;
+  --side-bar-color:#211c1e;
+--button-text-color: #ffffffe6;
+  --other-background: #443f40;
+  --sidebar-button:#ffffffe6;
+  --buttons-color: #e1e3e2;
+  --buttons-hover: #e1e3e2;
+  --button-text-hover:#292527;
   --font: 'Ivar Text', 'Georgia', serif;
+  --color-timeline: #DEA763;
+
 }
+
+/*B8B2BC*/
+/*88839c*/
+/*be816d*/
+/*91746c*/
+/*292636*/

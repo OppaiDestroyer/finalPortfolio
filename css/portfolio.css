@@ -1,9 +1,9 @@
-body{
-     margin: 0;
+body {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-     overflow-x: hidden;
+ background-color: var(--main-bg-color);
+    overflow-x: hidden;
 }
 
 
@@ -16,13 +16,11 @@ body{
     left: 0;
     width: auto;
     height: 100%;
-    background-color: var( --other-background);
+    background-color: var(--other-background);
     color: var(--text-color);
-    padding: 20px;
-      box-sizing: border-box;
     overflow-y: auto;
-
 }
+
 
 /* Back button */
 .back-button {
@@ -40,49 +38,55 @@ body{
 
 
 
-.search-bar input {
-    width: 100%; 
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
 
-    font-size: 14px;
-    box-sizing: border-box; 
-}
 .content {
     padding: 20px;
     box-sizing: border-box;
     transition: all 0.3s ease;
     min-height: 100vh;
-    background: var(--main-bg-color);
-}
-.sidebar h1 {
-    font-size: 18px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    transition: color 0.3s;
+  
 }
 
-.sidebar h1:hover {
+
+.sidebar h1.dropdown-toggle {
+    width: 100%; 
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    margin-bottom: 10px;
+    
+}
+
+.sidebar-inner {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar h1.dropdown-toggle:hover {
     color: #00bfff;
 }
 
-/* Dropdown content */
+
+
 .dropdown-content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
     padding-left: 10px;
+    transition: max-height 0.3s ease;
 }
 
-/* Active dropdown */
 .dropdown-content.active {
-    max-height: 500px; /* enough to show list */
-    padding-top: 5px;
-    padding-bottom: 10px;
+    max-height: 500px; 
 }
 
-/* List styling */
+
 .sidebar ul {
     list-style: none;
     padding: 0;
@@ -90,13 +94,13 @@ body{
 }
 
 .sidebar ul li {
-    margin: 8px 0;
     font-size: 14px;
     cursor: pointer;
-    transition: padding-left 0.3s;
+    transition: color 0.3s;
+    padding: 5px;
+    padding-left: 10px;
 }
 
 .sidebar ul li:hover {
-    padding-left: 8px;
     color: #00bfff;
 }

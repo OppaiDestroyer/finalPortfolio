@@ -19,60 +19,96 @@ function adjustContentLayout() {
       content.style.width = `${newWidth}px`;
     }
   }
+window.addEventListener('DOMContentLoaded', () => {
+  adjustContentLayout();
 
-  window.addEventListener('DOMContentLoaded', () => {
-    adjustContentLayout();
+  const content = document.getElementById('main-content');
 
-    const content = document.getElementById('main-content');
+  // Show welcome page initially
+  const welcome = document.createElement('div');
+  welcome.className = 'welcome-page';
+  welcome.innerHTML = `<h1>Welcome to my portfolio</h1>`;
+  content.appendChild(welcome);
 
-    // Inject Welcome Page
-    const welcome = document.createElement('div');
-    welcome.className = 'welcome-page';
-    welcome.innerHTML = `<h1>Welcome to my portfolio</h1>`;
-    content.appendChild(welcome);
+  // Add click event to all project items
+  document.querySelectorAll('.search-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const projectName = item.getAttribute('data-value');
 
-    // Load portfolio data
-    fetch('portfolio.json')
-      .then(response => response.json())
-      .then(data => {
-        const container = document.createElement('div');
-        container.className = 'contents-container';
+      // Clear old content
+      content.innerHTML = '';
 
-        // Manually set image (or skip if not needed here)
-        const imgSection = document.createElement('section');
-        imgSection.className = 'image';
-        imgSection.innerHTML = `<img src="pictures/portfolio/thesis1.png" alt="Project Image">`;
-        container.appendChild(imgSection);
+   fetch('js/portfolio.json')
 
-        // Title
-        const title = document.createElement('h1');
-        title.className = 'title';
-        title.textContent = data.title;
-        container.appendChild(title);
+        .then(response => response.json())
+        .then(projects => {
+          // If JSON is an array of projects
+          const project = Array.isArray(projects)
+            ? projects.find(p => p.title === projectName)
+            : (projects.title === projectName ? projects : null);
 
-        // Skills
-        const skillsSection = document.createElement('section');
-        skillsSection.className = 'skills';
-        skillsSection.innerHTML = `<h2>Skills Applied</h2><ul>${data.skills.map(skill => `<li class="skills-name">${skill}</li>`).join('')}</ul>`;
-        container.appendChild(skillsSection);
+          if (!project) {
+            content.innerHTML = `<div class="not-found"><h1>No project found.</h1></div>`;
+            return;
+          }
 
-        // Description
-        const descSection = document.createElement('section');
-        descSection.className = 'description';
-        descSection.innerHTML = `<h2>Description</h2><p>${data.description}</p>`;
-        container.appendChild(descSection);
+          // Create project content
+          const container = document.createElement('div');
+          container.className = 'contents-container';
 
-        // Team Members
-        const teamSection = document.createElement('section');
-        teamSection.className = 'team-members';
-        teamSection.innerHTML = `<h2>Team Members</h2><ul>${
-          data.teamMembers.map(member =>
-            `<li><a href="${member.link}">${member.name}</a></li>`).join('')
-        }</ul>`;
-        container.appendChild(teamSection);
+          const imgSection = document.createElement('section');
+          imgSection.className = 'image';
+          imgSection.innerHTML = `<img src="${project.image || 'pictures/portfolio/thesis1.png'}" alt="Project Image">`;
+          container.appendChild(imgSection);
 
-        content.appendChild(container);
-      });
+          const title = document.createElement('h1');
+          title.className = 'title';
+          title.textContent = project.title;
+          container.appendChild(title);
+
+          const skillsSection = document.createElement('section');
+          skillsSection.className = 'skills';
+          skillsSection.innerHTML = `<h2>Skills Applied</h2><ul>${project.skills.map(skill => `<li class="skills-name">${skill}</li>`).join('')}</ul>`;
+          container.appendChild(skillsSection);
+
+          const descSection = document.createElement('section');
+          descSection.className = 'description';
+          descSection.innerHTML = `<h2>Description</h2><p>${project.description}</p>`;
+          container.appendChild(descSection);
+
+          const teamSection = document.createElement('section');
+          teamSection.className = 'team-members';
+          teamSection.innerHTML = `<h2>Team Members</h2><ul>${
+            project.teamMembers.map(member =>
+              `<li><a href="${member.link}" target="_blank">${member.name}</a></li>`).join('')
+          }</ul>`;
+          container.appendChild(teamSection);
+
+          content.appendChild(container);
+        })
+        .catch(error => {
+          console.error('Error loading JSON:', error);
+          content.innerHTML = `<div class="error"><h1>Failed to load project.</h1></div>`;
+        });
+    });
   });
+});
 
-  window.addEventListener('resize', adjustContentLayout);
+window.addEventListener('resize', adjustContentLayout);
+
+
+
+ document.addEventListener('DOMContentLoaded', () => {
+    const backButton = document.querySelector('.back-button');
+
+    if (backButton) {
+      backButton.addEventListener('click', () => {
+        const link = backButton.getAttribute('data-backlink');
+        if (link) {
+          window.location.href = link;
+        } else {
+          window.history.back(); // fallback to browser history
+        }
+      });
+    }
+  });

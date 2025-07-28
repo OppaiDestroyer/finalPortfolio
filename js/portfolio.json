@@ -1,11 +1,20 @@
-{
-  "title": "Sheesh",
-  "skills": ["Sheesh", "Sheesh", "Sheesh", "Sheesh", "Sheesh"],
-  "description": "laksjdhgfb asdgbkgjadssgdaukhjgfsduhi jgksadfguhjkasdhnjgukisadgkjuhsadgjkhuisadgfjuikh",
-  "teamMembers": [
-    {
-      "name": "Francis Erick E. Datu",
-      "link": "this will be the link of portfolio of my team members"
-    }
-  ]
-}
+[
+  {
+    "title": "Pooms-E",
+    "description": "A smart logic board for student learning.",
+    "skills": ["Verilog", "FPGA", "Embedded C"],
+    "teamMembers": [
+      { "name": "Fred Sakalam", "link": "https://linkedin.com/in/yourprofile" }
+    ],
+    "image": "pictures/portfolio/pooms-e.png"
+  },
+  {
+    "title": "Ligaya Technology Solutions",
+    "description": "A business website with appointment system.",
+    "skills": ["HTML", "CSS", "JavaScript"],
+    "teamMembers": [
+      { "name": "John Doe", "link": "#" }
+    ],
+    "image": "pictures/portfolio/ligaya.png"
+  }
+]

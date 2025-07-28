@@ -11,50 +11,62 @@
 
 <body>
     <div class="sidebar">
-    <section class="back-button">
-        <img src="pictures/icons/arrow-left-solid.svg" alt="Back">Back to menu
-    </section>
+        <div class="sidebar-inner">
 
-    <div class="search-bar">
-        <input type="text" placeholder="Search projects..." />
-    </div>
+            <section class="back-button" data-backlink="index.html">
+                <img src="pictures/icons/arrow-left-solid.svg" alt="Back">Back to menu
+            </section>
 
-    <div class="website">
-        <h1 class="dropdown-toggle">Web Development</h1>
-        <div class="dropdown-content">
-            <ul>
-                <li id="ligaya">Ligaya Technology Solutions</li>
-                <li id="sprinkle">Sprinkle Bar</li>
-            </ul>
+
+
+            <div class="website">
+
+                <h1 class="dropdown-toggle">Web Development </h1>
+
+                <div class="dropdown-content">
+                    <ul>
+                        <li class="search-item" data-value="Ligaya Technology Solutions">Ligaya Technology Solutions
+                        </li>
+                        <li class="search-item" data-value="Sprinkle Bar">Sprinkle Bar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="software ">
+
+                <h1 class="dropdown-toggle">Software Development</h1>
+
+                <div class="dropdown-content">
+                    <ul>
+                        <li class="search-item" data-value="Wiggies Bacolor POS">Wiggies Bacolor POS</li>
+                        <li class="search-item" data-value="Vince Electronic POS">Vince Electronic POS</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="embedded-system">
+
+                <h1 class="dropdown-toggle">Embedded Systems</h1>
+
+                <div class="dropdown-content">
+                    <ul>
+                        <li class="search-item" data-value="Pooms-E">Pooms-E</li>
+                        <li class="search-item" data-value="Walkie Talkie Speech to Text">Walkie Talkie Speech to Text
+                        </li>
+                        <li class="search-item" data-value="HEMOS">HEMOS</li>
+                        <li class="search-item" data-value="Smart Parking Management System">Smart Parking Management
+                            System
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <div class="software">
-        <h1 class="dropdown-toggle">Software Development</h1>
-        <div class="dropdown-content">
-            <ul>
-                <li id="wiggies">Wiggies Bacolor POS</li>
-                <li id="Vince">Vince Electronic POS</li>
-            </ul>
-        </div>
+    <div class="content" id="main-content">
+
     </div>
-
-    <div class="embedded-system">
-        <h1 class="dropdown-toggle">Embedded Systems</h1>
-        <div class="dropdown-content">
-            <ul>
-                <li id="poomse">Pooms-E</li>
-                <li id="walkie">Walkie Talkie Speech to Text</li>
-                <li id="hemos">HEMOS</li>
-                <li id="smart">Smart Parking Management System</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<div class="content" id="main-content">
-
-</div>
 
 
     <script src="js/portfolio.js"></script>

@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="css/color.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Portfolio</title>
 </head>
@@ -15,10 +19,10 @@
     <div class="sidebar ">
         <div class="elements">
             <ul>
-                <li><img src="pictures/icons/house-solid.svg" alt="Home"></li>
-                <li><img src="pictures/icons/briefcase-solid.svg" alt="Portfolio"></li>
-                <li><img src="pictures/icons/user-solid.svg" alt="About"></li>
-                <li><img src="pictures/icons/address-book-solid.svg" alt="Contact"></li>
+                <li><i class="fa-solid fa-house icons"></i></li>
+                <li><i class="fa-solid fa-briefcase icons"></i></li>
+                <li><i class="fa-solid fa-user icons"></i></li>
+                <li><i class="fa-solid fa-address-book icons"></i></li>
 
             </ul>
         </div>
@@ -29,16 +33,35 @@
     <div class="content ">
         <!--HOme-->
         <div class="home containers" id="home">
-            <div class="triangle"></div>
-            <img src="/pictures/profile.png" alt="profile" class="home-profile">
-            <div class="home-title">
-                <h1 class="title">Hello</h1>
-                <h2 class="title">I'm Francis Erick Datu</h2>
-                <h3 class="title">Computer Engineer</h3>
-                <h4 class="title">Hire Me<img src="pictures/icons/arrow-up-right-from-square-solid.svg" alt="Link"
-                        class="hire-logo"></h4>
+            <div class="shape-profile">
+
+                <img src="/pictures/profile.svg" alt="profile" class="home-profile">
 
             </div>
+
+
+            <div class="home-title">
+                <h1 class="title"><span class="hello">Hello</span>!</h1>
+                <h2 class="title">I'm <span class="name">Francis Erick Datu</span>.</h2>
+                <h3 class="title">I am interested in <span class="typing"></span></h3>
+
+
+                <div class="about-container title">
+
+                    <p>
+                        Fresh Computer Engineering graduate from Don Honorio Ventura State University. I enjoy creating
+                        intuitive applications, building efficient software, and developing projects that turn ideas
+                        into practical solutions. I am known for my strong leadership skills, great teamwork, and
+                        passion for continuous learning.
+                    </p>
+                </div>
+                <div class="home-buttons title">
+                    <a href="#" class="hire-button">Download CV</a>
+                    <a href="#" class="projects-button"> Projects</a>
+                </div>
+
+            </div>
+
 
 
 
@@ -47,19 +70,7 @@
 
         <div class="whole-info-container">
 
-            <div class="about-me containers containers-padding" id="about-me">
-                <div class="about-container">
-                    <h1 class="header-container">About</h1>
-                    <p><i>
-                        "I'm a Computer Engineering graduate from Don Honorio Ventura State University (now Pampanga
-                        State University). My college years shaped my technical skills across various areas of
-                        software and system development, supported by collaborative projects and dedicated mentorship.
-                        My
-                        passion for technology began in Senior High School, where early exposure to programming and
-                        databases sparked my drive to explore the world of computing."
-                    </i></p>
-                </div>
-            </div>
+
 
 
 
@@ -67,248 +78,390 @@
 
             <!--Portfolio-->
 
-            <div class="portfolio containers containers-padding">
+            <div class="portfolio containers-padding">
 
 
-                <div class="header-container">
-                    <h1 class="title-header">Portfolio</h1>
+
+                <div class="portfolio-container-bg">
+                    <div class="header-container">
+                        <h1 class="title-header">Portfolio</h1>
+
+                    </div>
+
+                    <div class="content-container">
+                        <div class="portfolio-box">
+                            <div class="portfolio-img-container">
+                                <img src="/pictures/portfolio/thesis1.png" alt="Walkie Talkie to Text"
+                                    class="portfolio-img">
+                                <div class="portfolio-overlay">
+                                    <h3 class="portfolio-title">Walkie Talkie to Text</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-box">
+                            <div class="portfolio-img-container">
+                                <img src="/pictures/portfolio/thesis1.png" alt="Walkie Talkie to Text"
+                                    class="portfolio-img">
+                                <div class="portfolio-overlay">
+                                    <h3 class="portfolio-title">Walkie Talkie to Text</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-box">
+                            <div class="portfolio-img-container">
+                                <img src="/pictures/portfolio/thesis1.png" alt="Walkie Talkie to Text"
+                                    class="portfolio-img">
+                                <div class="portfolio-overlay">
+                                    <h3 class="portfolio-title">Walkie Talkie to Text</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-box">
+                            <div class="portfolio-img-container">
+                                <img src="/pictures/portfolio/thesis1.png" alt="Walkie Talkie to Text"
+                                    class="portfolio-img">
+                                <div class="portfolio-overlay">
+                                    <h3 class="portfolio-title">Walkie Talkie to Text</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-box">
+                            <div class="portfolio-img-container">
+                                <img src="/pictures/portfolio/thesis1.png" alt="Walkie Talkie to Text"
+                                    class="portfolio-img">
+                                <div class="portfolio-overlay">
+                                    <h3 class="portfolio-title">Walkie Talkie to Text</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-box">
+                            <div class="portfolio-img-container">
+                                <img src="/pictures/portfolio/thesis1.png" alt="Walkie Talkie to Text"
+                                    class="portfolio-img">
+                                <div class="portfolio-overlay">
+                                    <h3 class="portfolio-title">Walkie Talkie to Text</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <h4 class="show-more"><a href="portfolio.html">Show more...</a></h4>
 
                 </div>
 
-                <div class="content-container">
-                    <div class="portfolio-box">
-                        <div class="portfolio-img-container">
-                            <img src="/pictures/portfolio/thesis1.png" alt="Walkie Talkie to Text" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Walkie Talkie to Text</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-box">
-                        <div class="portfolio-img-container">
-                            <img src="/pictures/portfolio/thesis1.png" alt="Walkie Talkie to Text" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Walkie Talkie to Text</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-box">
-                        <div class="portfolio-img-container">
-                            <img src="/pictures/portfolio/thesis1.png" alt="Walkie Talkie to Text" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Walkie Talkie to Text</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-box">
-                        <div class="portfolio-img-container">
-                            <img src="/pictures/portfolio/thesis1.png" alt="Walkie Talkie to Text" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Walkie Talkie to Text</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-box">
-                        <div class="portfolio-img-container">
-                            <img src="/pictures/portfolio/thesis1.png" alt="Walkie Talkie to Text" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Walkie Talkie to Text</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-box">
-                        <div class="portfolio-img-container">
-                            <img src="/pictures/portfolio/thesis1.png" alt="Walkie Talkie to Text" class="portfolio-img">
-                            <div class="portfolio-overlay">
-                                <h3 class="portfolio-title">Walkie Talkie to Text</h3>
-                            </div>
-                        </div>
-                    </div>
+                <!--Skills-->
 
+                <div class="skills skills-container containers containers-padding">
+                    <div class="header-container">
+                        <h1 class="title-header">Skills</h1>
+
+                    </div>
+                    <div class="skills-scroll-wrapper">
+                        <div class="skill-icon-container">
+                            <div class="skills-icon-boxes">
+
+                                <img src="pictures/icons/skills/Html.svg" alt="HTML">
+                                <div class="skills-title-boxes">
+                                    <h2>HTML</h2>
+                                </div>
+
+                            </div>
+
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\css.svg" alt="CSS">
+
+                                <div class="skills-title-boxes">
+                                    <h2>CSS</h2>
+                                </div>
+
+                            </div>
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\js.svg" alt="JavaScript">
+                                <div class="skills-title-boxes">
+                                    <h2>JavaScript</h2>
+                                </div>
+
+
+                            </div>
+
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\sql.svg" alt="MySQL">
+                                <div class="skills-title-boxes">
+                                    <h2>MySQL</h2>
+                                </div>
+
+
+                            </div>
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\java.svg" alt="Java">
+                                <div class="skills-title-boxes">
+                                    <h2>Java</h2>
+                                </div>
+
+                            </div>
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\bootstrap.svg" alt="Bootstrap">
+                                <div class="skills-title-boxes">
+                                    <h2>Bootstrap</h2>
+                                </div>
+
+                            </div>
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\flask.svg" alt="Flask">
+                                <div class="skills-title-boxes">
+                                    <h2>Flask</h2>
+                                </div>
+
+                            </div>
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\flutter.svg" alt="Flutter">
+                                <div class="skills-title-boxes">
+                                    <h2>Flutter</h2>
+                                </div>
+
+                            </div>
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\git.svg" alt="Git">
+                                <div class="skills-title-boxes">
+                                    <h2>Git</h2>
+                                </div>
+
+                            </div>
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\ubuntu.svg" alt="Ubuntu">
+                                <div class="skills-title-boxes">
+                                    <h2>Ubuntu</h2>
+                                </div>
+                            </div>
+
+
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\python.svg" alt="Python">
+                                <div class="skills-title-boxes">
+                                    <h2>Python</h2>
+                                </div>
+
+                            </div>
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\tensorflow.svg" alt="Tensorflow">
+                                <div class="skills-title-boxes">
+                                    <h2>Tensorflow</h2>
+                                </div>
+
+                            </div>
+
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\hailo.svg" alt="Hailo">
+
+                                <div class="skills-title-boxes">
+                                    <h2>Hailo</h2>
+                                </div>
+                            </div>
+
+
+
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\dehirum.svg" alt="Degirum">
+
+                                <div class="skills-title-boxes">
+                                    <h2>Degirum</h2>
+                                </div>
+                            </div>
+
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\pytorch.svg" alt="Pytorch">
+
+                                <div class="skills-title-boxes">
+                                    <h2>Pytorch</h2>
+                                </div>
+                            </div>
+
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\raspberrypi.svg" alt="Raspberry Pi">
+
+                                <div class="skills-title-boxes">
+                                    <h2>Raspberry Pi</h2>
+                                </div>
+                            </div>
+
+                            <div class="skills-icon-boxes">
+                                <img src="pictures\icons\skills\arduino.svg" alt="Arduino">
+
+                                <div class="skills-title-boxes">
+                                    <h2>Arduino</h2>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
                 </div>
-                <h4 class="show-more"><a href="">Show more...</a></h4>
-
             </div>
 
-            <!--Skills-->
-
-            <div class="skills-container containers containers-padding">
-                <div class="header-container">
-                    <h1 class="title-header">Skills</h1>
-
-                </div>
-                <div class="skill-icon-container">
-                    <div class="skills-icon-boxes">
-
-                        <img src="pictures\icons\skills\html5-brands.svg" alt="CSS">
-                        <div class="skills-title-boxes">
-                            <h2>HTML</h2>
-                        </div>
-
-                    </div>
-
-                    <div class="skills-icon-boxes">
-                        <img src="pictures\icons\skills\css3-alt-brands.svg" alt="CSS">
-
-                        <div class="skills-title-boxes">
-                            <h2>CSS</h2>
-                        </div>
-
-                    </div>
-                    <div class="skills-icon-boxes">
-                        <img src="pictures\icons\skills\js-brands.svg" alt="CSS">
-                        <div class="skills-title-boxes">
-                            <h2>JavaScript</h2>
-                        </div>
-
-
-                    </div>
-
-                    <div class="skills-icon-boxes">
-                        <img src="pictures\icons\skills\java-brands.svg" alt="CSS">
-                        <div class="skills-title-boxes">
-                            <h2>Java</h2>
-                        </div>
-
-                    </div>
-
-                    <div class="skills-icon-boxes">
-                        <img src="pictures\icons\skills\python-brands.svg" alt="CSS">
-                        <div class="skills-title-boxes">
-                            <h2>Python</h2>
-                        </div>
-
-                    </div>
-                    <div class="skills-icon-boxes">
-                        <img src="pictures\icons\skills\raspberry-pi-brands.svg" alt="CSS">
-
-                        <div class="skills-title-boxes">
-                            <h2>Raspberry Pi</h2>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
 
 
 
 
-            <!--Education-->
+            <!--Education & Experience-->
+            <div class="education-experience containers ">
 
-            <div class="education-experience  containers containers-padding">
-
+                <!-- Education -->
                 <div class="education-whole-container">
-
                     <div class="header-container">
                         <h1 class="title-header">Education</h1>
-
                     </div>
-                    <div class="education-container">
 
-                        <div class="education-title-header">
-                            <h2>Don Honorio Ventura State University</h2>
-                            <h3>Bachelor of Science in Computer Engineering</h3>
-                            <h4>Cabambangan, Bacolor, Pampanga</h4>
-                            <h5>Year 2021 – 2025</h5>
-                            <h5>Tertiary</h5>
+                    <div class="timeline">
+                        <!-- Timeline Item -->
+                        <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <div class="education-title-header">
+                                <h5 class="timeline-date"><i class="fa fa-calendar"></i> 2021 – 2025</h5>
+                                <h2>Don Honorio Ventura State University</h2>
+                                <h3>Bachelor of Science in Computer Engineering</h3>
+                                <h3>Cabambangan, Bacolor, Pampanga<br>(Tertiary)</h3>
+
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item -->
+                        <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <div class="education-title-header">
+                                <h5 class="timeline-date"><i class="fa fa-calendar"></i> 2020 – 2021</h5>
+                                <h2>Systems Plus College Foundation</h2>
+                                <h3>Technical-Vocational-Livelihood - Information Communication Technology</h3>
+                                <h3>MCArthur Highway, Balibago, Angeles City, Pampanga <br>(Secondary - Senior
+                                    Highschool)</h3>
+
+                            </div>
                         </div>
 
 
-                    </div>
-                    <div class="education-container">
+                        <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <div class="education-title-header">
+                                <h5 class="timeline-date"><i class="fa fa-calendar"></i> 2015 - 2019 </h5>
+                                <h2>Rafael L. Lazatin Memorial Highschool</h2>
+                                <h3>Quezon New Valley St., Angeles City<br>(Secondary - Junior Highschool)</h3>
 
-                        <div class="education-title-header">
-                            <h2>Systems Plus College Foundation</h2>
-                            <h3>Technical-Vocational-Livelihood - Information and Communication Technology</h3>
-                            <h4>MCArthur Highway, Balibago, Angeles City, Pampanga</h4>
-                            <h5>Year 2020 – 2021</h5>
-                            <h5>Senior Highschool</h5>
+
+                            </div>
                         </div>
+
+                        <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <div class="education-title-header">
+                                <h5 class="timeline-date"><i class="fa fa-calendar"></i> 2009 - 2015</h5>
+                                <h2>Peniel Mission Foundation Christian Academy</h2>
+                                <h3>London St., Pulung Maragul, Angeles City<br>(Primary)</h3>
+
+
+                            </div>
+                        </div>
+
 
 
                     </div>
                 </div>
 
-                <!--Experience-->
-
-                <div class="experience-whole-container ">
-
+                <!-- Experience -->
+                <div class="experience-whole-container">
                     <div class="header-container">
                         <h1 class="title-header">Experience</h1>
-
-                    </div>
-                    <div class="experience-container">
-
-                        <div class="experience-title-header">
-                            <h2>Freelancing</h2>
-                            <h3>Web Development | Software Development | Embedded Systems</h3>
-                            <h4>Year 2023 - 2025</h4>
-                            <p>asgkljdhffgljkdhbsajdksgbfhlnfdsjkhldfskhjlfsdjhklsadfljkhafsdjhlksdfajklhasdfhjklbfsdajklhsadfkjhlbsdafkjhlsdfakhjlbsdfakljhasdfbujkhdefhjbkunm.
-                                efgasdrhjukbysedfhkujiblnsfhjkbunegsdfjhkbun,drfejkuhnmedfjS;K.VAK;SJDFGADGBFOUIAwsedgbfoikujasdbvlkjasdlbviuyavsbdlvkjabsdiuwsbgfovuawSJ
-                            </p>
-
-                        </div>
-
-                        <div class="experience-title-header">
-                            <h2>Yokohama Tire Philippines, Inc. (On-Job Training)</h2>
-                            <h3>MIS – Network and Communication</h3>
-                            <h4>April 2025 – June 2025</h4>
-                            <p>asgkljdhffgljkdhbsajdksgbfhlnfdsjkhldfskhjlfsdjhklsadfljkhafsdjhlksdfajklhasdfhjklbfsdajklhsadfkjhlbsdafkjhlsdfakhjlbsdfakljhasdfbujkhdefhjbkunm.
-                                efgasdrhjukbysedfhkujiblnsfhjkbunegsdfjhkbun,drfejkuhnmedfjS;K.VAK;SJDFGADGBFOUIAwsedgbfoikujasdbvlkjasdlbviuyavsbdlvkjabsdiuwsbgfovuawSJ
-                            </p>
-
-                        </div>
-
-
-
-
-                        <div class="experience-title-header">
-                            <h2>Pooms-E: Taekwondo Poomsae Judge Robot using Deep Learning (Thesis)</h2>
-                            <h3>Project Leader | Fullstack Developer | AI Developer | System Architect</h3>
-                            <h4>February 2025 – May 2025</h4>
-                            <p>asgkljdhffgljkdhbsajdksgbfhlnfdsjkhldfskhjlfsdjhklsadfljkhafsdjhlksdfajklhasdfhjklbfsdajklhsadfkjhlbsdafkjhlsdfakhjlbsdfakljhasdfbujkhdefhjbkunm.
-                                efgasdrhjukbysedfhkujiblnsfhjkbunegsdfjhkbun,drfejkuhnmedfjS;K.VAK;SJDFGADGBFOUIAwsedgbfoikujasdbvlkjasdlbviuyavsbdlvkjabsdiuwsbgfovuawSJ
-                            </p>
-
-                        </div>
-
-
-
                     </div>
 
+                    <div class="timeline">
+                        <!-- Timeline Item -->
+                        <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <div class="experience-title-header">
+                                <h5 class="timeline-date"><i class="fa fa-calendar"></i> 2023 – 2025</h5>
+                                <h2>Freelance</h2>
+                                <h3>Web Development | Software Development | Embedded Systems</h3>
+                                <p> I have been working as a freelancer specializing in web development, software
+                                    development, and embedded systems. During this time, I have gained experience in
+                                    creating websites, developing custom software solutions, and working on
+                                    hardware-related projects that involve programming microcontrollers and integrating
+                                    hardware with software. This freelancing period allowed me to enhance my technical
+                                    skills, work on diverse projects, and provide solutions tailored to the needs of
+                                    different clients.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item -->
+                        <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <div class="experience-title-header">
+                                <h5 class="timeline-date"><i class="fa fa-calendar"></i> Apr 2025 – Jun 2025</h5>
+                                <h2>Yokohama Tire Philippines, Inc. (On-Job Training)</h2>
+                                <h3>MIS – Network and Communication</h3>
+                                <p>I was responsible for maintaining the company’s CCTV and telephone systems to ensure
+                                    continuous functionality and security. My tasks included regularly monitoring the
+                                    temperature and performance of network switches to prevent overheating or failures,
+                                    verifying the proper connection and operation of CCTV cameras and telephone lines,
+                                    and documenting routine equipment checks using standardized checklists. I also
+                                    inspected and logged incoming communication equipment, such as CCTV units,
+                                    telephones, and networking devices, while assisting in organizing equipment storage,
+                                    labeling assets, and validating inventory records. Through these responsibilities, I
+                                    supported the overall maintenance of the company’s network and communication
+                                    infrastructure, gaining valuable hands-on experience with enterprise-level IT
+                                    systems and maintenance workflows. </p>
+                            </div>
+                        </div>
 
 
-
-
+                    </div>
                 </div>
-
-
-
-
-
             </div>
+
             <!--Contacts-->
 
             <div class="inquiries containers info containers-padding">
-                <h1 class="header-container">Contacts</h1>
+                <div class="header-container">
+                    <h1 class="title-header">Contact Me</h1>
+                </div>
+                <div class="contacts-icons">
+                    <a href="https://www.facebook.com/franciserick.datu" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-facebook"></i> Facebook</a>
+                    <a href="https://github.com/OppaiDestroyer" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-github"></i> Github</a>
 
-                <form class="contact-form">
-                    <input type="email" placeholder="Email" required>
-                    <input type="text" placeholder="Subject" required>
-                    <input type="text" placeholder="Company">
-                    <textarea placeholder="Message" required></textarea>
+
+                    <a href="https://www.linkedin.com/in/francis-erick-datu-62742728b/" target="_blank"
+                        rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a><i class="fa-solid fa-phone"></i>+639093136098</a>
+                </div>
+                <div class="header-container">
+                    <h1 class="title-header">Email Me</h1>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="text" id="subject" placeholder="Subject" required>
+                    <input type="text" id="company" placeholder="Company">
+                    <textarea id="message" placeholder="Message" required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
             </div>
 
-
         </div>
-        <!--Footer-->
-        <footer class="footer">
-            <p>© 2025 All rights reserved.</p>
 
-        </footer>
-        <script src="js/script.js"></script>
+    </div>
+    <!--Footer-->
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>© 2025 All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+        referrerpolicy="no-referrer"></script>
+    <script src="js/script.js"></script>
 
 </body>
 
