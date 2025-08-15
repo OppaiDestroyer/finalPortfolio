@@ -1,20 +1,283 @@
 [
   {
-    "title": "Pooms-E",
-    "description": "A smart logic board for student learning.",
-    "skills": ["Verilog", "FPGA", "Embedded C"],
-    "teamMembers": [
-      { "name": "Fred Sakalam", "link": "https://linkedin.com/in/yourprofile" }
+    "title": "Pooms-E: Taekwondo Poomsae Judge Robot using Deep Learning",
+    "description": "Pooms-E is a deep learning-powered robot designed to evaluate Taekwondo poomsae performances. This system automates the judging process, providing competitors with objective scores through a user-friendly web application. The robot is built around a Raspberry Pi main processing unit, which is enhanced with a Hailo AI accelerator to ensure smooth and efficient AI inference. A Camera Module 3 records the poomsae performances, while an ATmega328p microcontroller handles the arm movements. For the AI component, Pooms-E utilizes a YOLO object detection and pose estimation model to analyze the movements of the competitors. This model was trained and optimized for performance using the Degirum framework, which streamlines the post-processing steps. Despite limited computing resources, the system achieved a respectable 88% accuracy in its evaluations. The robot's scores are delivered to users via a web application built with Python Flask, allowing for easy connection and real-time viewing of results. This project successfully defended its thesis, demonstrating the potential of deep learning to bring a new level of precision to sports judging.",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Python",
+      "Raspberry Pi",
+      "Arduino",
+      "HailoAI",
+      "Degirum"
     ],
-    "image": "pictures/portfolio/pooms-e.png"
+    "teamMembers": [
+      {
+        "name": "Francis Erick Datu",
+        "role": "Project Leader | Web & AI Developer | System Architect"
+      },
+      {
+        "name": "Vince Zynned Cando",
+        "role": "Web Developer | 3D Design | Fabricator"
+      },
+      {
+        "name": "Chester John Daroy",
+        "role": "Web Developer | UI/UX Designer"
+      },
+      {
+        "name": "Cyrus Clifford Aguas",
+        "role": "UI/UX Designer | Fabricator"
+      },
+      {
+        "name": "Kristoper Lapira",
+        "role": "Documentation | Researcher | Scrum Master"
+      }
+      
+    ],
+    "image": "../pictures/portfolio/Pooms-E.svg"
   },
+
+
+
+
   {
-    "title": "Ligaya Technology Solutions",
-    "description": "A business website with appointment system.",
-    "skills": ["HTML", "CSS", "JavaScript"],
-    "teamMembers": [
-      { "name": "John Doe", "link": "#" }
+    "title": "Ligaya Technology Solutions Portfolio",
+    "description": "A fully responsive and professionally designed business website created for Ligaya Technology Solutions. This platform serves as a digital portfolio for the company, highlighting its services, team, and mission. The website includes an integrated appointment booking system that allows clients to easily schedule consultations. It features a clean user interface, intuitive navigation, and is optimized for both desktop and mobile devices. Built with HTML, CSS, and JavaScript, the site emphasizes performance, accessibility, and modern web design standards. This project demonstrates expertise in front-end development, client interaction, and small business digital transformation.",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript"
     ],
-    "image": "pictures/portfolio/ligaya.png"
+    "teamMembers": [
+      {
+        "name": "Francis Erick Datu",
+        "role": "Project Manager | Developer"
+      },
+      {
+        "name": "Kean Sid Orongan",
+         "role": "UI/UX Designer"
+      },
+      {
+        "name": "John Christansen M. Oliva",
+         "role": "Developer"
+      },
+      {
+        "name": "Jan Jariem Tonningsen",
+         "role": "Developer"
+      }
+    ],
+    "image": "../pictures/portfolio/Ligaya.svg"
+  },
+  
+
+
+
+
+  {
+    "title": "Wiggies Bacolor POS",
+    "description": "A point-of-sale (POS) system developed for Wiggies Bacolor, designed to streamline sales transactions, manage inventory, and generate real-time reports. Built using Python, this system enhances operational efficiency and provides an intuitive interface for daily business operations.",
+    "skills": [
+      "Python",
+      "MySQL"
+    ],
+    "teamMembers": [
+      {
+        "name": "Francis Erick Datu",
+         "role": "Developer"
+      },
+      {
+        "name": "Vince Zynned Cando",
+         "role": "Developer"
+      },
+      {
+        "name": "Chester John Daroy",
+         "role": "Project Leader | Developer"
+      },
+      {
+        "name": "Kristoper Lapira",
+         "role": "Documentation"
+      },
+      {
+        "name": "John Lorenz Candelaria",
+         "role": "Documentation"
+      }
+    ],
+    "image": "../pictures/portfolio/Wiggies POS.svg"
+  },
+
+
+
+
+  {
+    "title": "Walkie Talkie Speech to Text",
+    "description": "A real-time speech-to-text system that converts walkie talkie audio into readable text using Raspberry Pi and PicoVoice. Ideal for emergency or field communication, it detects voice inputs through a USB sound card and displays transcriptions on an I2C LCD screen.",
+    "skills": [
+      "Python",
+      "Raspberry Pi",
+      "PicoVoice"
+    ],
+    "teamMembers": [
+      {
+        "name": "Francis Erick Datu",
+         "role": "Web & AI Developer | System Architect"
+      }
+    ],
+    "image": "../pictures/portfolio/Speech To Text.svg"
+  },
+
+
+
+
+  {
+    "title": "HEMOS: Enhancing Public Health with Real-time Monitoring",
+    "description": "A health monitoring system designed to track real-time patient vitals using Arduino-based sensors and display the data on a Flutter mobile app. HEMOS aims to support public health by providing instant access to critical health parameters such as temperature, heart rate, and oxygen saturation.",
+    "skills": [
+      "Flutter",
+      "Arduino"
+    ],
+    "teamMembers": [
+      {
+        "name": "Francis Erick Datu",
+         "role": "Developer | System Architect"
+      },
+      {
+        "name": "Chester John Daroy",
+         "role": "Developer"
+      },
+      {
+        "name": "Chris Angelo Crud",
+         "role": "Developer"
+      },
+      {
+        "name": "James Sibug",
+         "role": "Project Leader"
+      },
+      {
+        "name": "John Lorenz Candelaria",
+         "role": "Documentation"
+      },
+      {
+        "name": "Kristoper Lapira",
+         "role": "Fabricator"
+      },
+      {
+        "name": "Myron Jem Cariño",
+         "role": "Fabricator"
+      },
+      {
+        "name": "Shawn Ashley De Guzman ",
+         "role": "Fabricator"
+      },
+      {
+        "name": "Rommel Avelino",
+         "role": "Documentation"
+      },
+      {
+        "name": "Vince Zynned Cando",
+         "role": "Developer"
+      }
+    ],
+    "image": "../pictures/portfolio/HEMOS.svg"
+  },
+
+
+
+
+  {
+    "title": "Smart Parking Management System",
+    "description": "A school project that uses Arduino with RFID, servo motors, and ultrasonic sensors to create an automated parking management system. The system detects vehicle presence, controls entry gates using servo motors, and authenticates access through RFID cards, providing an efficient and hands-on approach to learning embedded systems and automation.",
+    "skills": [
+      "Arduino"
+    ],
+    "teamMembers": [
+      {
+        "name": "Francis Erick Datu",
+         "role": "Project Leader | Developer"
+      },
+
+      {
+        "name": "Scarlet Cabrera",
+         "role": "Documentation | Fabricator"
+      },
+      {
+        "name": "Camille Cabrera",
+         "role": "Fabricator"
+      },
+      {
+        "name": "Justin Dabu",
+         "role": "Fabricator"
+      },
+      {
+        "name": "Kristoper Lapira",
+         "role": "Fabricator"
+      }
+    ],
+    "image": "../pictures/portfolio/Parking System.svg"
+  },
+
+
+
+
+  {
+    "title": "Electronic Components POS",
+    "description": "A school project that implements a Point of Sale (POS) system for an electronics store using Java and MySQL. The system manages product inventory, processes sales transactions, and stores customer and sales data in a database, providing a practical learning experience in software development and database management.",
+    "skills": [
+      "Java",
+      "MySQL"
+    ],
+    "teamMembers": [
+      {
+        "name": "Francis Erick Datu",
+        "role": "Project Leader | Developer"
+      },
+      {
+        "name": "Vince Zynned Cando",
+        "role": "Developer"
+      },
+      {
+        "name": "Chester John Daroy",
+        "role": "Developer"
+      },
+      {
+        "name": "Trisha Veronica De Juan",
+        "role": "UI/UX Designer"
+      },
+      {
+        "name": "Clarissa Cuyugan",
+        "role": "Documentation"
+      },
+      {
+        "name": "Kristoper Lapira",
+        "role": "Documentation"
+      }
+    ],
+    "image": "../pictures/portfolio/Electronics POS.svg"
+  },
+
+
+
+
+  {
+    "title": "Sprinkle Bar",
+    "description": "A school project that implements a Point of Sale (POS) system for an electronics store using Java and MySQL. The system manages product inventory, processes sales transactions, and stores customer and sales data in a database, providing a practical learning experience in software development and database management.",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "BootStrap"
+    ],
+    "teamMembers": [
+      {
+        "name": "Francis Erick Datu",
+         "role": "Project Leader | Developer"
+      },
+      {
+        "name": "John Russel Cinense",
+         "role": "Documentation | Developer"
+      }
+
+    ],
+    "image": "../pictures/portfolio/Sprinkle Bar.svg"
   }
 ]

@@ -1,0 +1,80 @@
+[
+    {
+        "name": "Francis Erick Datu",
+        "email": "franciserickdatu@gmail.com",
+        "portfolio": "https://portfolio-link.com",
+        "profile": "../pictures/team/Francis Erick Datu.svg"
+    },
+    {
+        "name": "Vince Zynned Cando",
+        "email": "vince@example.com",
+        "portfolio": "",
+        "profile": "../pictures/team/Vince Zynned Cando.svg"
+    },
+    {
+        "name": "Chester John Daroy",
+        "email": "chester@example.com",
+        "portfolio": "",
+        "profile": "../pictures/team/Chester John Daroy.svg"
+    },
+    {
+        "name": "Camille Cabrera",
+        "email": "chester@example.com",
+        "portfolio": "",
+        "profile": "../pictures/team/Camille Cabrera.svg"
+    },
+    {
+        "name": "Cyrus Clifford Aguas",
+        "email": "chester@example.com",
+        "portfolio": "",
+        "profile": "../pictures/team/Cyrus Clifford Aguas.svg"
+    },
+    {
+        "name": "James Sibug",
+        "email": "chester@example.com",
+        "portfolio": "",
+        "profile": "../pictures/team/James Sibug.svg"
+    },
+    {
+        "name": "John Russel Cinense",
+        "email": "chester@example.com",
+        "portfolio": "",
+        "profile": "../pictures/team/John Russel Cinense.svg"
+    },
+    {
+        "name": "Justin Dabu",
+        "email": "chester@example.com",
+        "portfolio": "",
+        "profile": "../pictures/team/Justin Dabu.svg"
+    },
+    {
+        "name": "Scarlet Cabrera",
+        "email": "chester@example.com",
+        "portfolio": "",
+        "profile": "../pictures/team/Scarlet Cabrera.svg"
+    },
+    {
+        "name": "Kristoper Lapira",
+        "email": "chester@example.com",
+        "portfolio": "",
+        "profile": "../pictures/team/Kristoper Lapira.svg"
+    },
+    {
+        "name": "Kean Sid Orongan",
+        "email": "chester@example.com",
+        "portfolio": "",
+        "profile": "../pictures/team/Kean Sid Orongan.svg"
+    },
+     {
+        "name": "John Lorenz Candelaria",
+        "email": "chester@example.com",
+        "portfolio": "",
+        "profile": "../pictures/team/John Lorenz Candelaria.svg"
+    },
+    {
+        "name": "Myron Jem Cariño",
+        "email": "chester@example.com",
+        "portfolio": "",
+        "profile": "../pictures/team/Myron Jem Cariño.svg"
+    }
+]

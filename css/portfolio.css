@@ -4,6 +4,7 @@ body {
     box-sizing: border-box;
  background-color: var(--main-bg-color);
     overflow-x: hidden;
+    font-family: 'Poppins', sans-serif; 
 }
 
 
@@ -19,10 +20,13 @@ body {
     background-color: var(--other-background);
     color: var(--text-color);
     overflow-y: auto;
+      user-select: none;
+      margin: 0 auto;
+      overflow-x: hidden;
+
 }
 
 
-/* Back button */
 .back-button {
     display: flex;
     align-items: center;
@@ -32,20 +36,7 @@ body {
     cursor: pointer;
 }
 
-.back-button img {
-    width: 16px;
-}
 
-
-
-
-.content {
-    padding: 20px;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    min-height: 100vh;
-  
-}
 
 
 .sidebar h1.dropdown-toggle {
@@ -55,22 +46,64 @@ body {
     cursor: pointer;
     transition: color 0.3s;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    align-items: center; 
+    justify-content: flex-start;
+    gap: 8px; 
 
-    margin-bottom: 10px;
     
+
 }
 
+
 .sidebar-inner {
-    padding: 20px;
+   
     box-sizing: border-box;
 }
 
-.sidebar h1.dropdown-toggle:hover {
-    color: #00bfff;
+
+/* Default .background container */
+.background {
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  border-radius: 0;
+  margin: 0;
+}
+
+/* Hover for only the <h1> area */
+.background .dropdown-toggle , .back-button{
+
+  width: 100%;
+  padding: 10px 20px; /* left/right padding for spacing */
+  margin: 0;
+  transition: background-color 0.3s ease;
+}
+
+.background .dropdown-toggle:hover , .back-button:hover{
+  background-color: var(--color-timeline);
+  cursor: pointer;
+}
+
+/* UL list hover */
+.background ul li {
+  padding: 8px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.background ul li:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* different hover color */
+  color: #00bfff; /* text color change */
+  cursor: pointer;
+}
+
+.dropdown-toggle i {
+  transition: transform 0.3s ease;
+  font-size: 15px;
+  
+}
+
+.dropdown-toggle.active i {
+  transform: rotate(90deg);
 }
 
 
@@ -78,7 +111,7 @@ body {
 .dropdown-content {
     max-height: 0;
     overflow: hidden;
-    padding-left: 10px;
+ 
     transition: max-height 0.3s ease;
 }
 
@@ -86,21 +119,331 @@ body {
     max-height: 500px; 
 }
 
-
 .sidebar ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0; /* remove left/right margin */
 }
 
 .sidebar ul li {
     font-size: 14px;
     cursor: pointer;
-    transition: color 0.3s;
-    padding: 5px;
-    padding-left: 10px;
+    padding: 10px 0 10px 50px; /* top, right, bottom, left */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%;
+}
+.sidebar ul li:hover {
+    background-color: var(--color-timeline);
+    color: var(--text-color);
+}
+.content {
+  padding: 20px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  height: 100%;
+  position: relative; /* Needed for absolute positioning inside */
+  color: var(--text-color);
 }
 
-.sidebar ul li:hover {
-    color: #00bfff;
+.welcome-page {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome-page h1 {
+  font-size: 3rem; /* Adjust size */
+  font-weight: bold;
+  margin: 0;
+
+}
+
+.welcome-page span, .not-found span{
+  color: var(--color-timeline);
+}
+
+
+
+.not-found {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.not-found h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+
+.contents-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally */
+  padding: 20px;
+  max-width: 900px; /* Shrinks content area */
+  margin: 0 auto; /* Centers container in page */
+  gap: 20px;
+  text-align: left; /* Keeps text aligned left */
+}
+
+/* Image section */
+.contents-container .image img {
+  width: 100%;
+  max-width: auto; /* Shrink image based on container width */
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Title */
+.contents-container .title {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Sections (skills, description, team) */
+.contents-container section {
+  width: 100%;
+}
+
+.content{
+  padding: 0;
+}
+
+
+
+/* Skills Container */
+.skills-container {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+
+/* Scroll Wrapper */
+.skills-scroll-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 30px 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Allow scrolling when hovered */
+.skills-scroll-wrapper:hover {
+  overflow-x: auto;
+}
+
+/* Hide scrollbar */
+.skills-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.skills-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* Skills Icon Container */
+.skill-icon-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.skill-icon-container::before,
+.skill-icon-container::after {
+  content: "";
+  flex: 0 0 5px; /* Space at start & end */
+}
+
+/* Skill Card */
+.skills-icon-boxes {
+  flex: 0 0 auto;
+  width: 160px;
+  height: 120px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--other-background);
+  cursor: pointer;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.skills-icon-boxes:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Skill Icon */
+.skills-icon-boxes img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  background: transparent;
+}
+
+/* Skill Name */
+.skills-title-boxes h2 {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin: 0;
+  background: transparent;
+}
+
+.skills-title-boxes {
+  background: transparent;
+}
+
+
+
+
+
+
+
+
+.description p {
+  text-align: justify;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+
+
+
+
+
+
+/* Team Members Container */
+.team-members-container {
+  width: 100%;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+
+
+/* Scroll Wrapper */
+.team-scroll-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 30px 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.team-scroll-wrapper:hover {
+  overflow-x: auto;
+}
+
+.team-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Icon Container */
+.team-icon-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.team-icon-container::before,
+.team-icon-container::after {
+  content: "";
+  flex: 0 0 5px;
+}
+
+/* Member Card */
+.team-icon-boxes {
+  flex: 0 0 auto;
+  width: 200px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--other-background);
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  
+  /* ✅ Allow text to wrap */
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+ 
+}
+
+
+.team-icon-boxes:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile Image */
+.team-profile-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 0.8rem;
+  object-fit: cover;
+  border-radius: 50%;
+  
+
+}
+
+
+
+/* Name */
+.team-title-boxes h2 {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin: 0;
+ 
+}
+
+/* Role */
+.team-role {
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  margin: 0.3rem 0;
+}
+
+/* Email */
+.team-email {
+  font-size: 0.85rem;
+  color: var(--text-secondary-color);
+ margin: 0.3rem 0;
+}
+
+/* Portfolio Link */
+.team-portfolio {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.team-portfolio:hover {
+  text-decoration: underline;
 }
