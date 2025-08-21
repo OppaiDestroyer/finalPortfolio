@@ -1,10 +1,103 @@
+const burger = document.querySelector('.burger');
+const burgerIcon = burger.querySelector('i');
+const sidebar = document.querySelector('.sidebar');
+
+burger.addEventListener('click', () => {
+  sidebar.classList.toggle('show');
+
+  if (sidebar.classList.contains('show')) {
+    burgerIcon.classList.replace('fa-bars', 'fa-xmark');
+  } else {
+    burgerIcon.classList.replace('fa-xmark', 'fa-bars');
+  }
+});
+
+// Optional: Close sidebar when clicking menu item
+document.querySelectorAll('.sidebar ul li').forEach(item => {
+  item.addEventListener('click', () => {
+    sidebar.classList.remove('show');
+    burgerIcon.classList.replace('fa-xmark', 'fa-bars');
+  });
+});
+
+
+const sectionIds = [
+  "#home",
+  "#portfolio",
+  "#skills",
+  "#inquiries"
+];
+
+const sidebarItems = document.querySelectorAll('.sidebar ul li');
+
+// Set active item
+function setActive(index) {
+  sidebarItems.forEach(item => item.classList.remove('active'));
+  sidebarItems[index].classList.add('active');
+}
+
+// Click navigation
+sidebarItems.forEach((li, index) => {
+  li.addEventListener('click', () => {
+    const targetElement = document.querySelector(sectionIds[index]);
+    if (targetElement) {
+      if (index === 0) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+
+// Scroll tracking (stable)
+window.addEventListener('scroll', () => {
+  let currentIndex = 0;
+  const scrollPos = window.scrollY + 150; // 150px offset for earlier activation
+
+  sectionIds.forEach((id, index) => {
+    const section = document.querySelector(id);
+    if (section.offsetTop <= scrollPos) {
+      currentIndex = index;
+    }
+  });
+
+  setActive(currentIndex);
+});
+
+
+setActive(0);
+
+document.addEventListener('contextmenu', function (e) {
+  if (e.target.tagName === 'IMG') {
+    e.preventDefault();
+
+  }
+});
+
+
+document.querySelectorAll('img').forEach(img => {
+  img.setAttribute('draggable', 'false');
+});
+
+
+
+
 function adjustContentLayout() {
   const sidebar = document.querySelector('.sidebar');
   const contentDivs = document.querySelectorAll('.content');
   const wholeInfoContainer = document.querySelector('.whole-info-container');
   const footer = document.querySelector('.footer');
   const homeTitle = document.querySelector('.home'); // ✅ add this line
-
+  // ✅ Stop adjusting on mobile
+  if (window.innerWidth <= 992) {
+    // reset widths when in mobile view
+    contentDivs.forEach(div => div.style.width = "100%");
+    if (wholeInfoContainer) wholeInfoContainer.style.width = "100%";
+    if (homeTitle) homeTitle.style.width = "100%";
+    if (footer) footer.style.width = "100%";
+    return; // exit early
+  }
   if (sidebar) {
     const sidebarWidth = sidebar.offsetWidth;
     const newWidth = window.innerWidth - sidebarWidth;
@@ -57,13 +150,29 @@ var typed = new Typed(".typing", {
   loop: true
 })
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
+  // Load EmailJS config from external JSON
   fetch("js/api.json")
     .then(res => res.json())
     .then(config => {
-      document.getElementById("contact-form").addEventListener("submit", function (e) {
+      const form = document.getElementById("contact-form");
+      const loadingScreen = document.getElementById("loading-screen");
+      const submitBtn = form.querySelector("button[type='submit']");
+
+      // Form submit event
+      form.addEventListener("submit", function (e) {
         e.preventDefault();
 
+        // Prevent multiple clicks
+        if (submitBtn.disabled) return;
+
+        // Disable button + show loading screen
+        submitBtn.disabled = true;
+        loadingScreen.classList.add("active");
+
+        // Prepare data for EmailJS
         var data = {
           service_id: config.SERVICE_ID,
           template_id: config.TEMPLATE_ID,
@@ -76,16 +185,36 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         };
 
+        // Send email using EmailJS API
         $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
           type: "POST",
           data: JSON.stringify(data),
           contentType: "application/json"
         })
           .done(() => {
-            alert("✅ Your mail has been sent!");
-            document.getElementById("contact-form").reset();
+            // Success → reset form and hide loading first
+            form.reset();
+            loadingScreen.classList.remove("active");
+
+            // Delay before showing alert
+            setTimeout(() => {
+              alert("✅ Your mail has been sent!");
+            }, 500); // 500ms delay
           })
-          .fail(error => alert("❌ Oops... " + JSON.stringify(error)));
+          .fail(error => {
+            // Failure → reset form and hide loading first
+            form.reset();
+            loadingScreen.classList.remove("active");
+
+            // Delay before showing alert
+            setTimeout(() => {
+              alert("❌ Your email has error sending");
+            }, 500);
+          })
+          .always(() => {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+          });
       });
     });
 });

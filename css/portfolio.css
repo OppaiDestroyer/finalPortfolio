@@ -1,63 +1,76 @@
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
- background-color: var(--main-bg-color);
-    overflow-x: hidden;
-    font-family: 'Poppins', sans-serif; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--main-bg-color);
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
 }
 
 
-
-
-/* Sidebar container */
 .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: auto;
-    height: 100%;
-    background-color: var(--other-background);
-    color: var(--text-color);
-    overflow-y: auto;
-      user-select: none;
-      margin: 0 auto;
-      overflow-x: hidden;
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: var(--other-background);
+  color: var(--text-color);
+  overflow-y: auto;
+  overflow-x: hidden;
+  user-select: none;
+  margin: 0;
+  z-index: 1000;
 }
+
+.burger {
+  font-size: 30px;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1100;
+  transition: left 0.3s ease-in-out;
+  color: var(--text-color);
+  display: none;
+}
+
+
+
 
 
 .back-button {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    margin-bottom: 20px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  cursor: pointer;
+
 }
 
 
 
 
 .sidebar h1.dropdown-toggle {
-    width: 100%; 
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
-    display: flex;
-    align-items: center; 
-    justify-content: flex-start;
-    gap: 8px; 
+  width: auto;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
 
-    
+
 
 }
 
 
 .sidebar-inner {
-   
-    box-sizing: border-box;
+
+  box-sizing: border-box;
 }
 
 
@@ -71,35 +84,27 @@ body {
 }
 
 /* Hover for only the <h1> area */
-.background .dropdown-toggle , .back-button{
+.background .dropdown-toggle,
+.back-button {
 
   width: 100%;
-  padding: 10px 20px; /* left/right padding for spacing */
+  padding: 15px 20px;
   margin: 0;
   transition: background-color 0.3s ease;
 }
 
-.background .dropdown-toggle:hover , .back-button:hover{
+.background .dropdown-toggle:hover,
+.back-button:hover {
   background-color: var(--color-timeline);
   cursor: pointer;
 }
 
-/* UL list hover */
-.background ul li {
-  padding: 8px 20px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
 
-.background ul li:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* different hover color */
-  color: #00bfff; /* text color change */
-  cursor: pointer;
-}
 
 .dropdown-toggle i {
   transition: transform 0.3s ease;
   font-size: 15px;
-  
+
 }
 
 .dropdown-toggle.active i {
@@ -109,45 +114,47 @@ body {
 
 
 .dropdown-content {
-    max-height: 0;
-    overflow: hidden;
- 
-    transition: max-height 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+
+  transition: max-height 0.3s ease;
 }
 
 .dropdown-content.active {
-    max-height: 500px; 
+  max-height: 500px;
 }
 
 .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0; /* remove left/right margin */
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .sidebar ul li {
-    font-size: 14px;
-    cursor: pointer;
-    padding: 10px 0 10px 50px; /* top, right, bottom, left */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    width: 100%;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px 0 10px 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: auto;
 }
+
 .sidebar ul li:hover {
-    background-color: var(--color-timeline);
-    color: var(--text-color);
+  background-color: var(--color-timeline);
+  color: var(--text-color);
 }
+
 .content {
   padding: 20px;
   box-sizing: border-box;
   transition: all 0.3s ease;
   height: 100%;
-  position: relative; /* Needed for absolute positioning inside */
+  position: relative;
   color: var(--text-color);
 }
 
 .welcome-page {
   width: 100%;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,13 +162,14 @@ body {
 }
 
 .welcome-page h1 {
-  font-size: 3rem; /* Adjust size */
+  font-size: clamp(50px, 2vw, 28px);
   font-weight: bold;
   margin: 0;
 
 }
 
-.welcome-page span, .not-found span{
+.welcome-page span,
+.not-found span {
   color: var(--color-timeline);
 }
 
@@ -169,7 +177,7 @@ body {
 
 .not-found {
   width: 100%;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,18 +195,18 @@ body {
 .contents-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers content horizontally */
+  align-items: center;
   padding: 20px;
-  max-width: 900px; /* Shrinks content area */
-  margin: 0 auto; /* Centers container in page */
+  max-width: 900px;
+  margin: 0 auto;
   gap: 20px;
-  text-align: left; /* Keeps text aligned left */
+  text-align: left;
 }
 
 /* Image section */
 .contents-container .image img {
   width: 100%;
-  max-width: auto; /* Shrink image based on container width */
+  max-width: auto;
   height: auto;
   display: block;
   border-radius: 10px;
@@ -217,7 +225,7 @@ body {
   width: 100%;
 }
 
-.content{
+.content {
   padding: 0;
 }
 
@@ -241,7 +249,7 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Allow scrolling when hovered */
+
 .skills-scroll-wrapper:hover {
   overflow-x: auto;
 }
@@ -266,7 +274,8 @@ body {
 .skill-icon-container::before,
 .skill-icon-container::after {
   content: "";
-  flex: 0 0 5px; /* Space at start & end */
+  flex: 0 0 5px;
+  /* Space at start & end */
 }
 
 /* Skill Card */
@@ -388,12 +397,12 @@ body {
   background-color: var(--other-background);
   text-align: center;
   transition: box-shadow 0.3s ease;
-  
+
   /* ✅ Allow text to wrap */
   white-space: normal;
   overflow-wrap: break-word;
   word-break: break-word;
- 
+
 }
 
 
@@ -408,7 +417,7 @@ body {
   margin-bottom: 0.8rem;
   object-fit: cover;
   border-radius: 50%;
-  
+
 
 }
 
@@ -419,7 +428,7 @@ body {
   font-size: 1.1rem;
   color: var(--text-color);
   margin: 0;
- 
+
 }
 
 /* Role */
@@ -433,7 +442,7 @@ body {
 .team-email {
   font-size: 0.85rem;
   color: var(--text-secondary-color);
- margin: 0.3rem 0;
+  margin: 0.3rem 0;
 }
 
 /* Portfolio Link */
@@ -446,4 +455,48 @@ body {
 
 .team-portfolio:hover {
   text-decoration: underline;
+}
+
+
+
+@media (max-width: 992px) {
+  .sidebar {
+    left: -250px;
+    transition: left 0.3s ease-in-out;
+    width: 220px;
+
+  }
+
+  .sidebar.show {
+    left: 0;
+    
+  }
+
+  .burger {
+    display: block;
+    font-size: 20px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    background-color: var(--main-bg-color);
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .sidebar-inner {
+    margin-top: 30%;
+  }
+
+  .contents-container {
+    margin-top: 15%;
+  }
+
+  .burger.active {
+    background-color: transparent;
+  }
+ 
+
+
 }

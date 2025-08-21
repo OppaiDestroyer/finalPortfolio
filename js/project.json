@@ -1,0 +1,27 @@
+{
+  "categories": [
+    {
+      "title": "Web Development",
+      "projects": [
+        "Ligaya Technology Solutions",
+        "Sprinkle Bar"
+      ]
+    },
+    {
+      "title": "Software Development",
+      "projects": [
+        "Wiggies Bacolor POS",
+        "Electronic Components POS"
+      ]
+    },
+    {
+      "title": "Embedded Systems",
+      "projects": [
+        "Pooms-E",
+        "Walkie Talkie Speech to Text",
+        "HEMOS",
+        "Smart Parking Management System"
+      ]
+    }
+  ]
+}
