@@ -1,7 +1,7 @@
 [
   {
     "title": "Pooms-E: Taekwondo Poomsae Judge Robot using Deep Learning",
-    "description": "Pooms-E is a deep learning-powered robot designed to evaluate Taekwondo poomsae performances. This system automates the judging process, providing competitors with objective scores through a user-friendly web application. The robot is built around a Raspberry Pi main processing unit, which is enhanced with a Hailo AI accelerator to ensure smooth and efficient AI inference. A Camera Module 3 records the poomsae performances, while an ATmega328p microcontroller handles the arm movements. For the AI component, Pooms-E utilizes a YOLO object detection and pose estimation model to analyze the movements of the competitors. This model was trained and optimized for performance using the Degirum framework, which streamlines the post-processing steps. Despite limited computing resources, the system achieved a respectable 88% accuracy in its evaluations. The robot's scores are delivered to users via a web application built with Python Flask, allowing for easy connection and real-time viewing of results. This project successfully defended its thesis, demonstrating the potential of deep learning to bring a new level of precision to sports judging.",
+    "description": "POOMS-E is an intelligent poomsae judge robot designed to evaluate martial arts forms using deep learning models. This is our thesis, the system integrates hardware robotics with a web-based scoring application. Through its AI-driven camera module, POOMS-E analyzes the accuracy, rhythm, and precision of poomsae movements. Once evaluated, scores are automatically generated and displayed on a digital scoreboard web app, making the judging process objective, consistent, and transparent.",
     "skills": [
       "HTML",
       "CSS",
@@ -33,17 +33,102 @@
         "name": "Kristoper Lapira",
         "role": "Documentation | Researcher | Scrum Master"
       }
-      
     ],
-    "image": "../pictures/portfolio/Pooms-E.svg"
+    "image": "../pictures/portfolio/Pooms-E.svg",
+    "role": "I led the development team, designed the overall system architecture, and implemented the deep learning models for performance analysis. My responsibilities also included building the full-stack web application for real-time scoring and integrating the AI inference pipeline with the robot hardware.",
+    "components": [
+      {
+        "label": "Raspberry Pi",
+        "note": "Acts as the central controller of the robot. It manages high-level system logic, coordinates communication between the AI accelerator and peripheral devices, and runs scripts to handle scoring, decision-making, and integration with the web application. Essentially, it is the “brain” that ties all components together.",
+        "img": "pictures/portfolio/components/pooms-e/raspberry-pi5.svg"
+      },
+      {
+        "label": "Atmega 328p",
+        "note": "A low-power microcontroller (same chip as used in Arduino boards) dedicated to handling low-level tasks such as reading sensor inputs and controlling servo motor movements. Offloading these real-time tasks to the Atmega ensures smooth hardware operation while the Raspberry Pi focuses on AI processing and communication.",
+        "img": "pictures/portfolio/components/pooms-e/atmega328p.svg"
+      },
+      {
+        "label": "Servo Motors (MG996R)",
+        "note": "High-torque servo motors that enable precise angular motion. In POOMS-E, they are used for robot gestures and movement mechanisms (e.g., positioning indicators or physical signals to represent scoring). Their accuracy ensures repeatable, consistent robotic actions.",
+        "img": "pictures/portfolio/components/pooms-e/mg996r.svg"
+      },
+      {
+        "label": "Motor Driver",
+        "note": "A circuit component that acts as an intermediary between the microcontroller and the servo motors. Since microcontrollers cannot supply enough current to directly drive motors, the motor driver regulates power and simplifies controlling multiple servos simultaneously.",
+        "img": "pictures/portfolio/components/pooms-e/motor-driver.svg"
+      },
+      {
+        "label": "Speaker (4Ω 15W)",
+        "note": "Provides audio feedback for user interaction. It can announce results, give prompts, or provide auditory signals during competitions, enhancing the interactive experience for both participants and audiences.",
+        "img": "pictures/portfolio/components/pooms-e/speaker.svg"
+      },
+      {
+        "label": "Custom PCB",
+        "note": "Designed and fabricated specifically for POOMS-E. This printed circuit board consolidates the motor driver, microcontroller connections, power management, and signal routing into a compact layout. By reducing messy wiring, it improves reliability, stability, and simplifies debugging.",
+        "img": "pictures/portfolio/components/pooms-e/custom-pcb.svg"
+      },
+      {
+        "label": "XH-A232 (Audio Amplifier Module)",
+        "note": "A compact stereo power amplifier used to drive the 4Ω 15W speaker in the system. Since the Raspberry Pi or microcontroller cannot directly supply enough power for audio output, this amplifier boosts the audio signal, ensuring clear and loud sound for announcements, prompts, and scoring feedback.",
+        "img": "pictures/portfolio/components/pooms-e/xh-a232.svg"
+      },
+      {
+        "label": "RDM6300 RFID Reader + 125kHz RFID Card",
+        "note": "Used for identification and authentication. For example, only authorized referees, judges, or participants with an RFID card can initiate or access the scoring system, ensuring secure usage in competitive events.",
+        "img": "pictures/portfolio/components/pooms-e/rdm600-rfidtag.svg"
+      },
+      {
+        "label": "Hailo-8 AI Accelerator",
+        "note": "A powerful edge AI processor that speeds up deep learning inference directly on the device. Instead of relying on cloud servers, Hailo-8 allows POOMS-E to analyze video frames in real time, delivering low-latency movement recognition — critical for live poomsae judging.",
+        "img": "pictures/portfolio/components/pooms-e/hailo-8.svg"
+      },
+      {
+        "label": "YOLO (You Only Look Once)",
+        "note": "A state-of-the-art object detection and pose estimation algorithm. In this project, YOLO models are trained to recognize martial arts poses and movements. They analyze live video input and detect whether each movement aligns with standard poomsae techniques.",
+        "img": "pictures/portfolio/components/pooms-e/yolo.svg"
+      },
+      {
+        "label": "Camera Module 3",
+        "note": "Captures live video input of the performer. The feed is analyzed by YOLO models running on the Raspberry Pi + Hailo-8 setup to recognize martial arts poses. Its role is essential for delivering real-time computer vision data.",
+        "img": "pictures/portfolio/components/pooms-e/camera-module-3.svg"
+      },
+      {
+        "label": "Roboflow",
+        "note": "A computer vision tool used for dataset management, preprocessing, and annotation. Roboflow was instrumental in preparing training datasets (e.g., labeling body poses) and augmenting them to improve model generalization.",
+        "img": "pictures/portfolio/components/pooms-e/roboflow.svg"
+      },
+      {
+        "label": "MongoDB",
+        "note": "A NoSQL database used to store scoring records, user profiles, and match sessions in real time. MongoDB’s flexible schema makes it suitable for dynamic data such as performance logs, scores, and RFID-based user records.",
+        "img": "pictures/portfolio/components/pooms-e/mongodb.svg"
+      },
+      {
+        "label": "Flask",
+        "note": "A lightweight Python web framework that serves as the backend API. Flask hosts the inference pipeline results, provides endpoints for retrieving scoring data, and connects the AI system with the web application and MongoDB.",
+        "img": "pictures/portfolio/components/pooms-e/flask.svg"
+      },
+      {
+        "label": "Degirum",
+        "note": "A supporting framework/toolkit used for deploying and optimizing AI workloads on embedded systems. It helps bridge the gap between trained YOLO models and real-time execution on devices like the Raspberry Pi with Hailo-8.",
+        "img": "pictures/portfolio/components/pooms-e/degirum.svg"
+      },
+      {
+        "label": "Ubuntu",
+        "note": "The development and deployment operating system. Ubuntu was chosen because it supports deep learning frameworks (PyTorch, TensorFlow), driver compatibility with Hailo-8, and reliable development tools. It served both as the training environment (with GPU) and as the runtime environment on the Raspberry Pi/Hailo setup.",
+        "img": "pictures/portfolio/components/pooms-e/ubuntu.svg"
+      },
+      {
+        "label": "Visual Studio Code",
+        "note": "The main code editor for writing the portfolio’s HTML, CSS, and JavaScript. VS Code’s features such as syntax highlighting, IntelliSense, extensions (like Live Server), and built-in Git integration streamlined the development process. It provided a professional environment where the team could efficiently build, test, and refine the website.",
+        "img": "pictures/portfolio/components/pooms-e/visual-studio-code.svg"
+      }
+    ],
+    "methodology": "We developed a robot equipped with sensors, actuators, and AI processing units to capture and analyze poomsae performances. A custom-designed PCB was created to control servo motors, manage signal routing, and integrate peripheral modules, ensuring precise hardware coordination. The system uses computer vision and deep learning (via YOLO-based models) to evaluate movements, comparing them against idealized reference datasets. After analysis, the results are transmitted through a Flask-based API into a MongoDB database and then displayed on a customer-facing scoring board web app. This methodology ensures fairness by reducing human bias and providing consistent evaluation metrics.",
+    "challenges": "One of the major challenges we faced was achieving only 80% accuracy in the early stages of training, largely due to hardware limitations: we trained on a GTX 1660 GPU and deployed on the Hailo-8 accelerator, which made the process slow and required heavy optimization. Despite this, we managed to finish training by carefully batching data and optimizing our YOLO models. Controlling servo motors was another hurdle, but we solved it by incorporating a motor driver into our custom PCB, which simplified precise servo control. Designing the correct angles of the robot also took experimentation, requiring us to iteratively adjust both hardware and servo configurations until we reached stable performance. Finally, building the robot body structure posed mechanical difficulties, but through repeated prototyping and testing, we refined the design for better stability and consistency. I learned about modern databases and AI Engineering that makes me gain interest about AI. It also builds my leadership skills and project management."
   },
-
-
-
-
   {
     "title": "Ligaya Technology Solutions Portfolio",
-    "description": "A fully responsive and professionally designed business website created for Ligaya Technology Solutions. This platform serves as a digital portfolio for the company, highlighting its services, team, and mission. The website includes an integrated appointment booking system that allows clients to easily schedule consultations. It features a clean user interface, intuitive navigation, and is optimized for both desktop and mobile devices. Built with HTML, CSS, and JavaScript, the site emphasizes performance, accessibility, and modern web design standards. This project demonstrates expertise in front-end development, client interaction, and small business digital transformation.",
+    "description": "A responsive start up company portfolio website for Ligaya Technology Solutions. It show services, projects, and team information, and doubles as a practice ground for an aspiring dev team to learn end-to-end web development—from planning and coding to version control and deployment—using only HTML, CSS, and JavaScript.",
     "skills": [
       "HTML",
       "CSS",
@@ -56,27 +141,42 @@
       },
       {
         "name": "Kean Sid Orongan",
-         "role": "UI/UX Designer"
+        "role": "UI/UX Designer"
       },
       {
         "name": "John Christansen Oliva",
-         "role": "Developer"
+        "role": "Developer"
       },
       {
         "name": "Jan Jariem Tonningsen",
-         "role": "Developer"
+        "role": "Developer"
       }
     ],
-    "image": "../pictures/portfolio/Ligaya.svg"
+    "image": "../pictures/portfolio/Ligaya.svg",
+    "role": "I led end-to-end project planning and delivery: clarified scope, broke work into achievable tasks, set milestones, and established a clean Git workflow (branches, pull requests, code reviews). On the build side, I implemented the front-end pages and a small component library, focusing on accessibility, responsiveness, and maintainable code. I coordinated reviews across the team, handled feedback triage, and oversaw deployment and basic monitoring so releases were smooth and reversible.",
+    "challenges": "The site launched on schedule and met our goals for responsiveness, performance, and reliability. The project also doubled as a training track: I ran hands-on sessions to teach teammates the basics of version control and collaborative workflows, created lightweight docs/checklists, and paired on real tickets to reinforce good habits. Along the way, I strengthened my leadership, project management, and mentoring skills—balancing delivery with team growth and clear, respectful communication.",
+    "methodology": "Built with a lightweight, standards-first stack: semantic HTML for structure, modern CSS (flex/grid, custom properties) for layout and theming, and vanilla JavaScript for simple interactions (navigation, modals, form handling). The team practiced Git branching and pull requests, ran local reviews, and deployed to a static host to simulate professional workflows in a minimal, dependency-free setup.",
+    "components": [
+      {
+        "label": "Figma",
+        "note": "A collaborative design tool used for creating the portfolio’s wireframes, layouts, and visual style guide. It allowed the team to plan the overall look of the website—colors, typography, and section arrangements—before development began. Using Figma helped ensure consistency in design and gave the developers a clear reference while coding.",
+        "img": "pictures/portfolio/components/ligaya/figma.svg"
+      },
+      {
+        "label": "Visual Studio Code",
+        "note": "The main code editor for writing the portfolio’s HTML, CSS, and JavaScript. VS Code’s features such as syntax highlighting, IntelliSense, extensions (like Live Server), and built-in Git integration streamlined the development process. It provided a professional environment where the team could efficiently build, test, and refine the website.",
+        "img": "pictures/portfolio/components/ligaya/visual-studio-code.svg"
+      },
+      {
+        "label": "GitHub",
+        "note": "A version control and collaboration platform used to host the project repository and manage teamwork. GitHub allowed the team to practice professional development workflows: creating branches for new features, reviewing code through pull requests, and merging into the main branch. The site was also deployed using GitHub Pages, making the portfolio accessible online for both clients and practice reviews.",
+        "img": "pictures/portfolio/components/ligaya/github.svg"
+      }
+    ]
   },
-  
-
-
-
-
   {
     "title": "Wiggies Bacolor POS",
-    "description": "A point-of-sale (POS) system developed for Wiggies Bacolor, designed to streamline sales transactions, manage inventory, and generate real-time reports. Built using Python, this system enhances operational efficiency and provides an intuitive interface for daily business operations.",
+    "description": "A point-of-sale (POS) system for Wiggies Bacolor that streamlines sales transactions, manages inventory, and generates real-time reports. Built with Python and developed during my second year of college, the system improves daily operations with an intuitive interface and efficient workflows.",
     "skills": [
       "Python",
       "MySQL"
@@ -84,34 +184,45 @@
     "teamMembers": [
       {
         "name": "Francis Erick Datu",
-         "role": "Developer"
+        "role": "Developer"
       },
       {
         "name": "Vince Zynned Cando",
-         "role": "Developer"
+        "role": "Developer"
       },
       {
         "name": "Chester John Daroy",
-         "role": "Project Leader | Developer"
+        "role": "Project Leader | Developer"
       },
       {
         "name": "Kristoper Lapira",
-         "role": "Documentation"
+        "role": "Documentation"
       },
       {
         "name": "John Lorenz Candelaria",
-         "role": "Documentation"
+        "role": "Documentation"
       }
     ],
-    "image": "../pictures/portfolio/Wiggies POS.svg"
+    "image": "../pictures/portfolio/Wiggies POS.svg",
+    "role": "Handled coding, database integration, and local deployment. Implemented the sales interface, connected it with a MySQL database, and ensured smooth transaction processing within a local environment.",
+    "challenges": "We encountered no critical blockers and delivered the POS smoothly. The primary limitation was reliance on a local database server, which prevented remote access and multi-branch use. Through the project I strengthened my skills in back-end development, database design, and deployment.",
+    "methodology": "The system was built using Python in PyCharm as the development environment, with WampServer providing the local Apache, MySQL, and PHP stack for database management. Interfaces were developed for order logging and billing, then connected to a MySQL database running on the local WampServer instance. This local-only setup prioritized speed and offline reliability.",
+    "components": [
+      {
+        "label": "PyCharm",
+        "note": "PyCharm served as the main Integrated Development Environment (IDE) for this project. It provided powerful features like code autocompletion, debugging tools, and project organization that made writing Python code more efficient. The POS system’s modules (sales logging, billing, and database connectivity) were all built and tested inside PyCharm, making development smoother and more error-free.",
+        "img": "pictures/portfolio/components/wiggies/pycharm.svg"
+      },
+      {
+        "label": "WampServer",
+        "note": "WampServer was used as the local server environment, bundling Apache, PHP, and MySQL in one package. For this POS system, MySQL handled the sales and inventory database, storing transaction logs securely on a local machine. Apache provided local hosting to allow the Python application to communicate with the database. This setup ensured that the business could run the POS system offline without relying on an internet connection, making it fast and reliable for daily operations.",
+        "img": "pictures/portfolio/components/wiggies/wampserver.svg"
+      }
+    ]
   },
-
-
-
-
   {
     "title": "Walkie Talkie Speech to Text",
-    "description": "A real-time speech-to-text system that converts walkie talkie audio into readable text using Raspberry Pi and PicoVoice. Ideal for emergency or field communication, it detects voice inputs through a USB sound card and displays transcriptions on an I2C LCD screen.",
+    "description": "A system that converts walkie talkie speech into text using a language model (LLM). This is a freelance project, this project will identify accidents or hazards reported over radio communication and send an SMS alert containing the severity level and description of the incident. The system also replies back with acknowledgments like 'roger that' to confirm receipt.",
     "skills": [
       "Python",
       "Raspberry Pi",
@@ -120,18 +231,79 @@
     "teamMembers": [
       {
         "name": "Francis Erick Datu",
-         "role": "AI Developer | System Architect"
+        "role": "AI Developer | System Architect"
       }
     ],
-    "image": "../pictures/portfolio/Speech To Text.svg"
+    "image": "../pictures/portfolio/Speech To Text.svg",
+    "role": "Designed and implemented the full system architecture, integrating hardware components with speech-to-text AI, SMS communication, and severity-level indicators. Developed all code in Visual Studio Code and managed both software and hardware integration.",
+    "challenges": "The main struggle was integrating the walkie talkie with the Raspberry Pi, since they operate on different frequencies and direct interfacing was unreliable. The clever solution was to use a relay module on the audio port, which allowed the system to capture incoming signals reliably. The main limitation was accuracy, as the Raspberry Pi 3 had limited processing power. A more powerful board like Raspberry Pi 5 would improve real-time transcription and response accuracy.",
+    "methodology": "The system uses a Raspberry Pi 3A as the main controller. A walkie talkie serves as the audio receiver and transmitter, connected via a USB sound card. A relay module is used to control the push-to-talk function. Audio is processed and converted into text using a speech-to-text pipeline powered by an LLM (Large Language Model), which is trained to recognize context and structure of language. After identifying the message, the system sends an SMS via a SIM800L GSM module, indicating the hazard type and severity code. Additional components like an LCD and LEDs display the alert locally, while a buzzer provides audible warnings.",
+    "components": [
+      {
+        "label": "Raspberry Pi 3B",
+        "note": "The main processing unit that runs the speech-to-text pipeline, SMS handling, and control logic. It receives audio, processes it into text, and triggers responses and alerts.",
+        "img": "pictures/portfolio/components/speech/raspberyy-pi3b.svg"
+      },
+      {
+        "label": "SIM800L GSM Module",
+        "note": "Used to send SMS alerts after a hazard or accident is detected. It sends details such as severity level and type of hazard to predefined phone numbers.",
+        "img": "pictures/portfolio/components/speech/sism800l.svg"
+      },
+      {
+        "label": "Relay Module",
+        "note": "Connected to the walkie talkie’s push-to-talk system. It allows the Raspberry Pi to simulate pressing the PTT button, enabling automatic transmission and reception.",
+        "img": "pictures/portfolio/components/speech/relay-module.svg"
+      },
+      {
+        "label": "Walkie Talkie (Receiver/Transmitter)",
+        "note": "Acts as the main communication device, providing radio input that is converted into digital audio for speech-to-text processing.",
+        "img": "pictures/portfolio/components/speech/walkie-talkie.svg"
+      },
+      {
+        "label": "USB Sound Card",
+        "note": "Captures audio from the walkie talkie and feeds it into the Raspberry Pi for processing. It ensures better compatibility and quality than the Pi’s built-in audio interface.",
+        "img": "pictures/portfolio/components/speech/usb-soundcard.svg"
+      },
+      {
+        "label": "LCD Screen (16x4)",
+        "note": "Displays hazard information, severity codes, and system status in real time for local operators.",
+        "img": "pictures/portfolio/components/speech/lcd-screen.svg"
+      },
+      {
+        "label": "74HC595 Shift Register + 8 LEDs",
+        "note": "Controls eight LEDs representing different severity levels of accidents or hazards. The shift register expands output pins, allowing multiple LEDs to be controlled using fewer GPIO pins.",
+        "img": "pictures/portfolio/components/speech/74hc595.svg"
+      },
+      {
+        "label": "Buzzer",
+        "note": "Provides audible alerts when a hazard or accident is detected and logged by the system.",
+        "img": "pictures/portfolio/components/speech/buzzer.svg"
+      },
+      {
+        "label": "Step-Down Converter",
+        "note": "Regulates the 12V 5A adapter input down to appropriate voltage levels required by the Raspberry Pi, SIM800L, and other components.",
+        "img": "pictures/portfolio/components/speech/stepdown.svg"
+      },
+      {
+        "label": "12V 5A Adapter",
+        "note": "Primary power source supplying all components through the step-down converter, ensuring stable operation.",
+        "img": "pictures/portfolio/components/speech/adapter.svg"
+      },
+      {
+        "label": "PicoVoice",
+        "note": "Used as the text-to-speech (TTS) engine to generate responses like 'roger that' or acknowledgments, enhancing two-way communication.",
+        "img": "pictures/portfolio/components/speech/picovoice.svg"
+      },
+      {
+        "label": "Visual Studio Code",
+        "note": "The main development environment where all Python code for hardware control, speech-to-text integration, and SMS handling was written and debugged.",
+        "img": "pictures/portfolio/components/speech/visual-studio-code.svg"
+      }
+    ]
   },
-
-
-
-
   {
     "title": "HEMOS: Enhancing Public Health with Real-time Monitoring",
-    "description": "A health monitoring system designed to track real-time patient vitals using Arduino-based sensors and display the data on a Flutter mobile app. HEMOS aims to support public health by providing instant access to critical health parameters such as temperature, heart rate, and oxygen saturation.",
+    "description": "This is a third year project HEMOS is a portable health monitoring watch designed to track vital signs such as heart rate and blood pressure in real time. The goal of this project is to provide a low-cost, accessible solution for individuals to monitor their health proactively, with an integrated alert system that warns users of potential health risks directly through a mobile application. ",
     "skills": [
       "Flutter",
       "Arduino"
@@ -139,89 +311,159 @@
     "teamMembers": [
       {
         "name": "Francis Erick Datu",
-         "role": "Developer | System Architect"
+        "role": "Developer | System Architect"
       },
       {
         "name": "Chester John Daroy",
-         "role": "Developer"
+        "role": "Developer"
       },
       {
         "name": "Chris Angelo Crud",
-         "role": "Developer"
+        "role": "Developer"
       },
       {
         "name": "James Sibug",
-         "role": "Project Leader"
+        "role": "Project Leader"
       },
       {
         "name": "John Lorenz Candelaria",
-         "role": "Documentation"
+        "role": "Documentation"
       },
       {
         "name": "Kristoper Lapira",
-         "role": "Fabricator"
+        "role": "Fabricator"
       },
       {
         "name": "Myron Jem Cariño",
-         "role": "Fabricator"
+        "role": "Fabricator"
       },
       {
         "name": "Shawn Ashley De Guzman",
-         "role": "Fabricator"
+        "role": "Fabricator"
       },
       {
         "name": "Rommel Avelino",
-         "role": "Documentation"
+        "role": "Documentation"
       },
       {
         "name": "Vince Zynned Cando",
-         "role": "Developer"
+        "role": "Developer"
       }
     ],
-    "image": "../pictures/portfolio/HEMOS.svg"
+    "image": "../pictures/portfolio/HEMOS.svg",
+    "role": "As the System Architect, I was responsible for designing the circuit diagrams and ensuring seamless integration of the hardware components with the mobile application. I also worked extensively on the connectivity layer, particularly enabling Bluetooth communication between the wearable device and our Flutter-based mobile application.",
+    "components": [
+      {
+        "label": "Arduino Nano",
+        "note": "The microcontroller that manages sensor readings and processes data. The Nano was selected because of its small size, affordability, and compatibility with a wide range of sensors and modules, though in future iterations a more compact board could reduce the overall device size.",
+        "img": "pictures/portfolio/components/hemos/arduino-nano.svg"
+      },
+      {
+        "label": "MAX30102 Sensor",
+        "note": "A high-sensitivity optical sensor used for measuring heart rate and blood oxygen levels. It works by emitting infrared and red light through the skin and detecting the amount of light absorbed by blood vessels, which varies with pulse and oxygen concentration. We chose this sensor for its accuracy and low power consumption, making it ideal for wearable devices.",
+        "img": "pictures/portfolio/components/hemos/max30102.svg"
+      },
+      {
+        "label": "HC-05 Bluetooth Module",
+        "note": "Responsible for wireless communication between the Arduino and the smartphone app. The HC-05 uses serial communication to transmit health data in real time, enabling smooth integration with the mobile app.",
+        "img": "pictures/portfolio/components/hemos/hc05-bluetooth.svg"
+      },
+      {
+        "label": "Lithium Polymer 3.7V Battery",
+        "note": "Provides a lightweight and rechargeable power source, making the device portable and suitable for continuous use. Li-Po batteries are preferred in wearable technology because of their high energy density and slim profile.",
+        "img": "pictures/portfolio/components/hemos/battery.svg"
+      },
+      {
+        "label": "TP4056 Charger Module",
+        "note": "A charging circuit for the Li-Po battery, ensuring safe and efficient charging. This module protects the battery from overcharging and provides a micro-USB interface for convenient recharging.",
+        "img": "pictures/portfolio/components/hemos/charger.svg"
+      },
+      {
+        "label": "Flutter",
+        "note": "Used to develop the cross-platform mobile application. The app connects to the device via Bluetooth and displays real-time heart rate and blood pressure readings. It also includes a danger precaution system, which sends alerts to the user’s smartphone if abnormal readings are detected.",
+        "img": "pictures/portfolio/components/hemos/flutter.svg"
+      }
+    ],
+    "methodology": [
+      "The system works by collecting vital signs from the MAX30102 sensor, processing them on the Arduino Nano, and then transmitting the data wirelessly through the HC-05 Bluetooth module. The mobile app, built in Flutter, receives the data and provides the user with a clear and intuitive interface for monitoring their health. The app also integrates notification features to alert users of dangerous conditions, helping prevent health risks before they escalate."
+    ],
+    "challenges": [
+      "During development, the main struggles included ensuring stable Bluetooth connectivity between the device and the app, as well as the physical integration of all hardware components into a single container. The prototype device is relatively bulky, highlighting the need for smaller microcontrollers and more compact circuit design in future iterations. Despite these limitations, the prototype successfully demonstrated real-time health monitoring and alerting, proving the feasibility of the concept. I learned about teamwork, mobile development and connectivity of mobile apps to devices."
+    ]
   },
-
-
-
-
   {
     "title": "Smart Parking Management System",
-    "description": "A school project that uses Arduino with RFID, servo motors, and ultrasonic sensors to create an automated parking management system. The system detects vehicle presence, controls entry gates using servo motors, and authenticates access through RFID cards, providing an efficient and hands-on approach to learning embedded systems and automation.",
+    "description": "A prototype smart parking system built using cardboard and toy cars to simulate real-world parking lot operations.This is a third year project, the system uses RFID for vehicle verification, ultrasonic sensors for car detection, and servo motors to act as entry gates. The project demonstrates how IoT-based parking systems can automate vehicle entry and improve efficiency.",
     "skills": [
       "Arduino"
     ],
     "teamMembers": [
       {
         "name": "Francis Erick Datu",
-         "role": "Project Leader | Developer"
+        "role": "Project Leader | Developer"
       },
-
       {
         "name": "Scarlet Cabrera",
-         "role": "Documentation | Fabricator"
+        "role": "Documentation | Fabricator"
       },
       {
         "name": "Camille Cabrera",
-         "role": "Fabricator"
+        "role": "Fabricator"
       },
       {
         "name": "Justin Dabu",
-         "role": "Fabricator"
+        "role": "Fabricator"
       },
       {
         "name": "Kristoper Lapira",
-         "role": "Fabricator"
+        "role": "Fabricator"
       }
     ],
-    "image": "../pictures/portfolio/Parking System.svg"
+    "image": "../pictures/portfolio/Parking System.svg",
+    "role": "Designed the system architecture and developed the Arduino code to control RFID verification, ultrasonic distance sensing, and servo motor operations. Integrated all hardware using breadboards and ensured the prototype demonstrated automated gate control for vehicles.",
+    "challenges": "The main struggle was wiring and integrating multiple components (RFID, ultrasonic sensor, and two servo motors) onto the breadboard, which was difficult to manage. We solved this by carefully organizing connections and testing each module step by step until all parts worked together smoothly. I enhancve my leadership skills, project management, problem solving and system architecture.",
+    "methodology": "The system was built around an Arduino microcontroller coded through the Arduino IDE. RFID RC522 and RFID cards were used for access verification, ultrasonic sensors detected car presence, and servo motors simulated the gate by moving up and down. The prototype was created using cardboard and toy cars for demonstration purposes, focusing on showing the analogy of how a real smart parking management system would work.",
+    "components": [
+      {
+        "label": "Arduino",
+        "note": "The main microcontroller that processed sensor inputs and controlled the servo motors. It served as the 'brain' of the system, running the parking logic coded in Arduino IDE.",
+        "img": "pictures/portfolio/components/parking/arduino.svg"
+      },
+      {
+        "label": "RFID RC522 + RFID Card (13.56 MHz)",
+        "note": "Used for vehicle access verification. When an RFID card was scanned, the Arduino checked if it was authorized and triggered the servo motor to lift the gate.",
+        "img": "pictures/portfolio/components/parking/rfid.svg"
+      },
+      {
+        "label": "Ultrasonic Sensor",
+        "note": "Placed at the parking entrance to detect the presence of a toy car. It prevented the gate from closing when a vehicle was under the barrier.",
+        "img": "pictures/portfolio/components/parking/ultrasonic.svg"
+      },
+      {
+        "label": "SG90 Servo Motors",
+        "note": "Simulated the parking gate by moving up and down. Controlled by Arduino based on RFID verification and ultrasonic sensor input.",
+        "img": "pictures/portfolio/components/parking/sg90.svg"
+      },
+      {
+        "label": "Arduino IDE",
+        "note": "The software environment used to write and upload the C/C++ code that controlled the Arduino, integrating RFID, ultrasonic, and servo modules.",
+        "img": "pictures/portfolio/components/parking/arduino-ide.svg"
+      },
+      {
+        "label": "Breadboard",
+        "note": "Used to connect and organize the wiring between Arduino, RFID module, ultrasonic sensor, and servo motors. Allowed modular testing of each component during integration.",
+        "img": "pictures/portfolio/components/parking/breadboard.svg"
+      },
+      {
+        "label": "Cardboard + Toy Car",
+        "note": "Used to simulate the physical parking environment for demonstration purposes. The cardboard structure represented the parking gate, while toy cars acted as vehicles entering or exiting.",
+        "img": "pictures/portfolio/components/parking/ccardboard-car.svg"
+      }
+    ]
   },
-
-
-
-
   {
     "title": "Electronic Components POS",
-    "description": "A school project that implements a Point of Sale (POS) system for an electronics store using Java and MySQL. The system manages product inventory, processes sales transactions, and stores customer and sales data in a database, providing a practical learning experience in software development and database management.",
+    "description": "Third year school project that implements a Point of Sale (POS) system for an electronics store using Java and MySQL. The system manages product inventory, processes sales transactions, and stores customer and sales data in a database, providing a practical learning experience in software development and database management.",
     "skills": [
       "Java",
       "MySQL"
@@ -252,15 +494,26 @@
         "role": "Documentation"
       }
     ],
-    "image": "../pictures/portfolio/Electronics POS.svg"
+    "image": "../pictures/portfolio/Electronics POS.svg",
+    "role": "Developed the POS system using Java in NetBeans IDE, integrated it with a MySQL database through WampServer, and implemented features for inventory management, sales processing, and customer data storage.",
+   "challenges": "No major issues arose—the project was delivered as planned. I strengthened my skills in project management, teamwork, and software development.",
+ "methodology": "The POS system was coded in Java using NetBeans IDE, with a MySQL database running on WampServer. The database handled product, sales, and customer records, while the Java application provided a user-friendly interface for managing inventory and processing transactions. This setup allowed for hands-on experience in linking front-end logic with a back-end database.",
+    "components": [
+      {
+        "label": "NetBeans IDE",
+        "note": "An integrated development environment (IDE) that was used to build the POS application. NetBeans simplified the process of writing, organizing, and debugging the project. It also provided built-in tools for connecting the application to databases, making it easier to integrate MySQL into the POS system.",
+        "img": "pictures/portfolio/components/electronics/netbeans.svg"
+      },
+      {
+        "label": "WampServer",
+        "note": "A local server environment that bundles Apache, PHP, and MySQL together. For this project, it was primarily used to run MySQL on a local machine, making it possible to test and develop the POS system without needing an online server. WampServer provided a stable environment to manage the database during development.",
+        "img": "pictures/portfolio/components/electronics/wampserver.svg"
+      }
+    ]
   },
-
-
-
-
   {
     "title": "Sprinkle Bar",
-    "description": "A school project that implements a Point of Sale (POS) system for an electronics store using Java and MySQL. The system manages product inventory, processes sales transactions, and stores customer and sales data in a database, providing a practical learning experience in software development and database management.",
+    "description": "This is a second-year college project, its' a simple web app ordering system for a dessert shop (Sprinkle Bar). The landing page features a soft pink gradient hero with the brand logo, a top navigation (About, Menu, Specials, Contact), and Login/Sign Up. Customers can browse the menu and place orders through a clean, mobile-friendly interface.",
     "skills": [
       "HTML",
       "CSS",
@@ -270,14 +523,33 @@
     "teamMembers": [
       {
         "name": "Francis Erick Datu",
-         "role": "Project Leader | Developer"
+        "role": "Project Leader | Developer"
       },
       {
         "name": "John Russel Cinense",
-         "role": "Documentation | Developer"
+        "role": "Documentation | Developer"
       }
-
     ],
-    "image": "../pictures/portfolio/Sprinkle Bar.svg"
+    "image": "../pictures/portfolio/Sprinkle Bar.svg",
+    "role": "Developed the entire web-based ordering system, creating the front-end interface with Bootstrap, coding the backend logic, and setting up the database through WampServer. Used Visual Studio Code as the primary environment for development and debugging.",
+    "challenges": "The project executed smoothly overall; key challenges included aligning scope and timelines, establishing a disciplined Git workflow, and standardizing on the chosen framework. These experiences strengthened my leadership, project-planning, and framework proficiency.",
+    "methodology": "The system was developed using Bootstrap to create a responsive, user-friendly interface. Visual Studio Code served as the main coding environment, while WampServer provided the local Apache and MySQL services needed for database management and backend testing. This setup allowed for a fast and efficient development workflow.",
+    "components": [
+      {
+        "label": "Bootstrap",
+        "note": "A front-end framework used to design the system’s layout and style. It provided prebuilt components like buttons, forms, and navigation bars, ensuring the ordering system was both responsive and visually consistent across devices.",
+        "img": "pictures/portfolio/components/sprinkle/bootstrap.svg"
+      },
+      {
+        "label": "Visual Studio Code",
+        "note": "The code editor used for writing and debugging the system’s HTML, CSS, JavaScript, and backend logic. Its extensions and live server features made it efficient for testing changes during development.",
+        "img": "pictures/portfolio/components/sprinkle/visual-studio-code.svg"
+      },
+      {
+        "label": "WampServer",
+        "note": "A local server environment used to host the database and backend services. It provided MySQL for storing order data and Apache for running the system locally during development and testing.",
+        "img": "pictures/portfolio/components/sprinkle/wampserver.svg"
+      }
+    ]
   }
 ]

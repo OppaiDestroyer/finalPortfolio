@@ -201,6 +201,7 @@ body {
   margin: 0 auto;
   gap: 20px;
   text-align: left;
+    user-select: none;
 }
 
 /* Image section */
@@ -319,23 +320,112 @@ body {
 
 .skills-title-boxes {
   background: transparent;
+
 }
 
+/* ===== description cards ===== */
+.description {
+  display: grid;
+  gap: 1.25rem;
+}
 
+.description__section {
 
-
-
-
-
-
-.description p {
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  color: var(--body-text);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .03);
   text-align: justify;
-  line-height: 1.6;
-  font-size: 1rem;
-  color: var(--text-color);
 }
 
+.description__title {
+  margin: 0 0 .5rem;
+  font-size: 1.25rem;
+  color: var(--heading);
+}
 
+.description__text {
+  margin: .5rem 0 0;
+  line-height: 1.6;
+  color: var(--body-text);
+  text-align: justify;
+
+}
+
+/* ===== components list (perfect alignment + centered image) ===== */
+.description__list {
+  margin: .5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: .75rem;
+  list-style: none;
+}
+
+.description__list-item {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  /* dot | text | image */
+  align-items: center;
+  column-gap: 12px;
+}
+
+.description__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--bullet);
+  opacity: .95;
+  justify-self: center;
+  align-self: center;
+}
+
+.description__text-box {
+  min-width: 0;
+}
+
+.description__item-main {
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.description__item-note {
+  font-size: .9rem;
+  color: var(--muted-text);
+  margin-top: .15rem;
+}
+
+/* image cell */
+.description__media {
+  width: 140px;
+  display: grid;
+  place-items: center;
+}
+
+.description__img {
+  max-width: 120px;
+  max-height: 90px;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+}
+
+.description__img--placeholder {
+  width: 120px;
+  height: 90px;
+  border: 2px dashed rgba(0, 0, 0, .15);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: .8rem;
+  color: rgba(0, 0, 0, .5);
+}
+
+/* any other bullets/steps you use elsewhere (kept for compatibility) */
+.description__bullets, .description__steps {
+  margin: .5rem 0 0 1.25rem;
+  color: var(--body-text);
+}
 
 
 
@@ -469,7 +559,7 @@ body {
 
   .sidebar.show {
     left: 0;
-    
+
   }
 
   .burger {
@@ -496,7 +586,24 @@ body {
   .burger.active {
     background-color: transparent;
   }
- 
 
+  .description__item-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5rem;
+  }
+
+  .description__list-item::before {
+    top: .9rem;
+  }
+
+  .description__img,
+  .description__img--placeholder {
+    width: 100%;
+    height: 160px;
+    /* taller for mobile */
+  }
 
 }
+
+

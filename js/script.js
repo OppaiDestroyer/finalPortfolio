@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 var typed = new Typed(".typing", {
-  strings: ["", "Web Development", "Software Engineering", "AI Engineering", " Data Engineering"],
+  strings: ["", "Web Development", "Software Development", "AI Engineering", " Data Engineering"],
   typeSpeed: 50,
   BackSpeed: 60,
   loop: true
@@ -218,3 +218,105 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 });
+
+// ========= Reveal-on-scroll (re-enter every time) =========
+(() => {
+  const STAGGER = 90; // ms between siblings on enter
+
+  const $all = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+  // 1) Auto-assign animation classes (same as before)
+  function assignAnimations() {
+    const home = document.querySelector('.home');
+    if (home) {
+      const targets = [
+        home.querySelector('.shape-profile'),
+        ...$all('.home-title .title', home),
+      ].filter(Boolean);
+      targets.forEach(el => el.classList.add('anim', 'anim-fade'));
+    }
+
+    // Portfolio: fade
+    $all('.portfolio-box').forEach(el => el.classList.add('anim', 'anim-fade'));
+
+    // Skills: up-to-down
+    $all('.skills-icon-boxes').forEach(el => el.classList.add('anim', 'anim-down'));
+
+    // Education & Experience: left-to-right
+    $all('.education-whole-container .timeline-item').forEach(el => el.classList.add('anim', 'anim-left'));
+    $all('.experience-whole-container .timeline-item').forEach(el => el.classList.add('anim', 'anim-left'));
+
+    // Contact Me: up-to-down
+    const contacts = document.querySelector('.contacts-icons');
+    if (contacts) {
+      contacts.classList.add('anim', 'anim-down');
+      $all('a', contacts).forEach(el => el.classList.add('anim', 'anim-down'));
+    }
+
+    // Email Me: right-to-left
+    const form = document.getElementById('contact-form');
+    if (form) {
+      form.classList.add('anim', 'anim-right');
+      $all('input, textarea, button', form).forEach(el => el.classList.add('anim', 'anim-right'));
+    }
+  }
+
+  // helper: find the closest parent section for staggering
+  function groupParent(el) {
+    return el.closest(
+      '.home, .portfolio, .skills, .education-whole-container, .experience-whole-container, .inquiries'
+    ) || document.body;
+  }
+
+  // helper: index of node among anim siblings for consistent stagger
+  function indexInGroup(el) {
+    const parent = groupParent(el);
+    const siblings = $all('.anim', parent);
+    return Math.max(0, siblings.indexOf(el));
+  }
+
+  // 2) Observer that toggles visible state on enter/leave
+  function setupObserver() {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target;
+
+        if (entry.isIntersecting) {
+          // ENTER: add stagger delay based on position in its section
+          const i = indexInGroup(el);
+          el.style.transitionDelay = `${i * STAGGER}ms`;
+          el.classList.add('is-visible');
+        } else {
+          // LEAVE: remove visible and clear delay so exit is immediate
+          el.style.transitionDelay = '0ms';
+          el.classList.remove('is-visible');
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.12,     // reveal when ~12% visible
+      rootMargin: '0px 0px -5% 0px' // begin slightly sooner on scroll up
+    });
+
+    $all('.anim').forEach(el => io.observe(el));
+  }
+
+  // init
+  document.addEventListener('DOMContentLoaded', () => {
+    assignAnimations();
+    setupObserver();
+  });
+
+  // optional API if you inject DOM later
+  window.Anim = {
+    applyTo(selector, cls='anim-fade') {
+      $all(selector).forEach(n => n.classList.add('anim', cls));
+    },
+    reobserve() {
+      // run again if you added new .anim nodes dynamically
+      const ev = new Event('DOMContentLoaded');
+      document.dispatchEvent(ev);
+    }
+  };
+})();
+

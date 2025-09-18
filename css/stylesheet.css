@@ -492,6 +492,7 @@ body {
   font-size: 20px;
   background-color: var(--other-background);
 
+
 }
 
 .experience-title-header h3 {
@@ -509,6 +510,12 @@ body {
   font-size: 1rem;
   color: var(--text-color);
   margin-bottom: 0.3rem;
+  background-color: var(--other-background);
+  font-weight: bold;
+
+}
+.education-title-header span {
+
   background-color: var(--other-background);
   font-weight: lighter;
 
@@ -913,4 +920,35 @@ body {
     font-size: 1rem;
   }
 }
+
+/* ===== Reveal-on-scroll animations (no shimmer) ===== */
+
+/* base (hidden) */
+.anim {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+/* visible state */
+.anim.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* directions */
+.anim-fade   { transform: translateY(0); }        /* fade only */
+.anim-down   { transform: translateY(-18px); }    /* from up -> down */
+.anim-left   { transform: translateX(-22px); }    /* from left -> right */
+.anim-right  { transform: translateX(22px); }     /* from right -> left */
+
+/* optional: slightly snappier hoverables */
+.portfolio-box.anim.is-visible,
+.skills-icon-boxes.anim.is-visible { transition-duration: 100ms; }
+
+/* accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .anim { transition: none; opacity: 1 !important; transform: none !important; }
+}
+
 
