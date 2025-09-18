@@ -34,7 +34,7 @@
         "role": "Documentation | Researcher | Scrum Master"
       }
     ],
-    "image": "../pictures/portfolio/Pooms-E.svg",
+    "image": "pictures/portfolio/Pooms-E.svg",
     "role": "I led the development team, designed the overall system architecture, and implemented the deep learning models for performance analysis. My responsibilities also included building the full-stack web application for real-time scoring and integrating the AI inference pipeline with the robot hardware.",
     "components": [
       {
@@ -152,7 +152,7 @@
         "role": "Developer"
       }
     ],
-    "image": "../pictures/portfolio/Ligaya.svg",
+    "image": " pictures/portfolio/Ligaya.svg",
     "role": "I led end-to-end project planning and delivery: clarified scope, broke work into achievable tasks, set milestones, and established a clean Git workflow (branches, pull requests, code reviews). On the build side, I implemented the front-end pages and a small component library, focusing on accessibility, responsiveness, and maintainable code. I coordinated reviews across the team, handled feedback triage, and oversaw deployment and basic monitoring so releases were smooth and reversible.",
     "challenges": "The site launched on schedule and met our goals for responsiveness, performance, and reliability. The project also doubled as a training track: I ran hands-on sessions to teach teammates the basics of version control and collaborative workflows, created lightweight docs/checklists, and paired on real tickets to reinforce good habits. Along the way, I strengthened my leadership, project management, and mentoring skills—balancing delivery with team growth and clear, respectful communication.",
     "methodology": "Built with a lightweight, standards-first stack: semantic HTML for structure, modern CSS (flex/grid, custom properties) for layout and theming, and vanilla JavaScript for simple interactions (navigation, modals, form handling). The team practiced Git branching and pull requests, ran local reviews, and deployed to a static host to simulate professional workflows in a minimal, dependency-free setup.",
@@ -203,7 +203,7 @@
         "role": "Documentation"
       }
     ],
-    "image": "../pictures/portfolio/Wiggies POS.svg",
+    "image": " pictures/portfolio/Wiggies POS.svg",
     "role": "Handled coding, database integration, and local deployment. Implemented the sales interface, connected it with a MySQL database, and ensured smooth transaction processing within a local environment.",
     "challenges": "We encountered no critical blockers and delivered the POS smoothly. The primary limitation was reliance on a local database server, which prevented remote access and multi-branch use. Through the project I strengthened my skills in back-end development, database design, and deployment.",
     "methodology": "The system was built using Python in PyCharm as the development environment, with WampServer providing the local Apache, MySQL, and PHP stack for database management. Interfaces were developed for order logging and billing, then connected to a MySQL database running on the local WampServer instance. This local-only setup prioritized speed and offline reliability.",
@@ -234,7 +234,7 @@
         "role": "AI Developer | System Architect"
       }
     ],
-    "image": "../pictures/portfolio/Speech To Text.svg",
+    "image": " pictures/portfolio/Speech To Text.svg",
     "role": "Designed and implemented the full system architecture, integrating hardware components with speech-to-text AI, SMS communication, and severity-level indicators. Developed all code in Visual Studio Code and managed both software and hardware integration.",
     "challenges": "The main struggle was integrating the walkie talkie with the Raspberry Pi, since they operate on different frequencies and direct interfacing was unreliable. The clever solution was to use a relay module on the audio port, which allowed the system to capture incoming signals reliably. The main limitation was accuracy, as the Raspberry Pi 3 had limited processing power. A more powerful board like Raspberry Pi 5 would improve real-time transcription and response accuracy.",
     "methodology": "The system uses a Raspberry Pi 3A as the main controller. A walkie talkie serves as the audio receiver and transmitter, connected via a USB sound card. A relay module is used to control the push-to-talk function. Audio is processed and converted into text using a speech-to-text pipeline powered by an LLM (Large Language Model), which is trained to recognize context and structure of language. After identifying the message, the system sends an SMS via a SIM800L GSM module, indicating the hazard type and severity code. Additional components like an LCD and LEDs display the alert locally, while a buzzer provides audible warnings.",
@@ -350,7 +350,7 @@
         "role": "Developer"
       }
     ],
-    "image": "../pictures/portfolio/HEMOS.svg",
+    "image": " pictures/portfolio/HEMOS.svg",
     "role": "As the System Architect, I was responsible for designing the circuit diagrams and ensuring seamless integration of the hardware components with the mobile application. I also worked extensively on the connectivity layer, particularly enabling Bluetooth communication between the wearable device and our Flutter-based mobile application.",
     "components": [
       {
@@ -419,7 +419,7 @@
         "role": "Fabricator"
       }
     ],
-    "image": "../pictures/portfolio/Parking System.svg",
+    "image": "pictures/portfolio/Parking System.svg",
     "role": "Designed the system architecture and developed the Arduino code to control RFID verification, ultrasonic distance sensing, and servo motor operations. Integrated all hardware using breadboards and ensured the prototype demonstrated automated gate control for vehicles.",
     "challenges": "The main struggle was wiring and integrating multiple components (RFID, ultrasonic sensor, and two servo motors) onto the breadboard, which was difficult to manage. We solved this by carefully organizing connections and testing each module step by step until all parts worked together smoothly. I enhancve my leadership skills, project management, problem solving and system architecture.",
     "methodology": "The system was built around an Arduino microcontroller coded through the Arduino IDE. RFID RC522 and RFID cards were used for access verification, ultrasonic sensors detected car presence, and servo motors simulated the gate by moving up and down. The prototype was created using cardboard and toy cars for demonstration purposes, focusing on showing the analogy of how a real smart parking management system would work.",
@@ -494,7 +494,7 @@
         "role": "Documentation"
       }
     ],
-    "image": "../pictures/portfolio/Electronics POS.svg",
+    "image": " pictures/portfolio/Electronics POS.svg",
     "role": "Developed the POS system using Java in NetBeans IDE, integrated it with a MySQL database through WampServer, and implemented features for inventory management, sales processing, and customer data storage.",
    "challenges": "No major issues arose—the project was delivered as planned. I strengthened my skills in project management, teamwork, and software development.",
  "methodology": "The POS system was coded in Java using NetBeans IDE, with a MySQL database running on WampServer. The database handled product, sales, and customer records, while the Java application provided a user-friendly interface for managing inventory and processing transactions. This setup allowed for hands-on experience in linking front-end logic with a back-end database.",
@@ -530,7 +530,7 @@
         "role": "Documentation | Developer"
       }
     ],
-    "image": "../pictures/portfolio/Sprinkle Bar.svg",
+    "image": " pictures/portfolio/Sprinkle Bar.svg",
     "role": "Developed the entire web-based ordering system, creating the front-end interface with Bootstrap, coding the backend logic, and setting up the database through WampServer. Used Visual Studio Code as the primary environment for development and debugging.",
     "challenges": "The project executed smoothly overall; key challenges included aligning scope and timelines, establishing a disciplined Git workflow, and standardizing on the chosen framework. These experiences strengthened my leadership, project-planning, and framework proficiency.",
     "methodology": "The system was developed using Bootstrap to create a responsive, user-friendly interface. Visual Studio Code served as the main coding environment, while WampServer provided the local Apache and MySQL services needed for database management and backend testing. This setup allowed for a fast and efficient development workflow.",
