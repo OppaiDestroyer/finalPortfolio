@@ -165,29 +165,27 @@ window.addEventListener('DOMContentLoaded', () => {
           const skillsSection = document.createElement('section');
           skillsSection.className = 'skills-container';
 
-          const skills = Array.isArray(project.skills) ? project.skills : [];
+           const skills = Array.isArray(project.skills) ? project.skills : [];
           skillsSection.innerHTML = `
-  <div class="skills-header-container">
-    <h2 class="title-header">Skills Applied</h2>
-  </div>
-  <div class="skills-scroll-wrapper">
-    <div class="skill-icon-container">
-      ${skills.map(skill => {
-            const fallback = String(skill)
+            <div class="skills-header-container">
+              <h2 class="title-header">Skills Applied</h2>
+            </div>
+            <div class="skills-scroll-wrapper">
+              <div class="skill-icon-container">
+                ${skills.map(skill => {
+            const iconFile = String(skill)
               .toLowerCase()
               .replace(/[\s_]+/g, '-')
               .replace(/[^a-z0-9\-]/g, '');
-            const file = ICON_FILE[skill] ?? `${fallback}.svg`;
             return `
-          <div class="skills-icon-boxes">
-            <img src="pictures/icons/skills/${file}" alt="${skill} icon"
-                 class="skill-icon"
-                 onerror="this.onerror=null; this.src='pictures/icons/skills/default.svg';">
-            <div class="skills-title-boxes"><h2>${skill}</h2></div>
-          </div>`;
+                    <div class="skills-icon-boxes">
+                      <img src="pictures/icons/skills/${iconFile}.svg" alt="${skill} icon" class="skill-icon">
+                      <div class="skills-title-boxes"><h2>${skill}</h2></div>
+                    </div>
+                  `;
           }).join('')}
-    </div>
-  </div>`;
+              </div>
+            </div>`;
           container.appendChild(skillsSection);
 
           // ---------- REUSABLE RENDERING UTILITIES ----------
